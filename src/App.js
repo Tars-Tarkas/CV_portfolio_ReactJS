@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import "./App.scss";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import AddForm from "./components/AddForm/AddForm";
+import Post from "./components/Post/Post";
+import CV from "./cv";
+
+
+let postList = [
+  {
+    id: 1121324545,
+    date: "10.10.2022",    
+    title: "Портфолио",
+    page: "https://www.page.page",
+    linkrep: "https://www.link.rep",
+    description: "Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum."
+  },
+];
+
+function App() {  
+  const [data, setData] = useState(postList); 
+
+  const handleClick = (value) =>{
+    setData([value, ...data]);
+  }
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <CV />
+      {/* <AddForm arr={handleClick}/>  
+      <Post data={data} /> */}
+      <Footer />
     </div>
-  );
-}
+  )
+ 
+};
+
+
 
 export default App;

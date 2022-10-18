@@ -1,0 +1,24 @@
+.wrapper{
+    @apply max-w-4xl mx-auto ;
+}
+.post__item{
+    @apply pt-5 pb-5;
+}
+.post__inner{
+    @apply bg-slate-200 w-full p-2 rounded-md;
+}
+.description__title{
+    @apply bg-slate-700 text-white h-8 font-medium rounded-md
+}
+h2{
+    @apply font-medium text-lg
+}
+.post__page__link{
+    @apply flex mb-2
+}
+hr{
+    @apply block h-1 border-0 border-t-2 m-1 p-0 bg-slate-500;  
+}
+.post__date{
+    @apply text-xs text-slate-500
+}
