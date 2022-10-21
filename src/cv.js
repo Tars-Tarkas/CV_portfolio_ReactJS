@@ -1,32 +1,28 @@
 import React, { useEffect, useState } from "react";
+import withListLoading from "./HOC/withListLoading";
+import CVList from "./components/CVList/CVList";
 
-function CV(){
-    const [readfile, setReadfile] = useState([]);
 
-    useEffect(() => {
-        getAPI("./cv.json")
-    }, []);
 
-    const getAPI = (data) => {       
-        fetch(data, {
-            headers:
-            {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(res => res.json())
-            .then(data => {                
-                setReadfile(data);
-            })
-            .catch(()=> console.log(Error))
-    }
+function CV(){    
+    const ListLoading = withListLoading(CVList);
+    const [readFile, setReadFile] = useState({
+    loading: false,
+    data: null,
+  });
+
+  useEffect(() => {
+    setReadFile({ loading: true });
+    const jsonfile = `./cv.json`;
+    fetch(jsonfile)
+      .then((res) => res.json())
+      .then((data) => {
+        setReadFile({ loading: false, data: data });    
+      });      
+  }, [setReadFile]);
    
-    return (
-        <>    
-        {/* {console.log(readfile)}     */}
-       {/* {readfile.map((item, index)=><ul key={index}><li>{}</li></ul>)} */}
-        </>
+    return (           
+        <ListLoading isLoading={readFile.loading} data={readFile.data} />
     )
 }
 
