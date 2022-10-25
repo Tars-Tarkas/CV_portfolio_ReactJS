@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import AddForm from "./components/AddForm/AddForm";
 import Post from "./components/Post/Post";
-import CV from "./cv";
+import CV from "./components/CV/CV";
 
 
 let postList = [
@@ -28,8 +28,8 @@ function App() {
     
   return (
     <div>
-      <Header />
-      <CV />
+      <Header />      
+      <CV />     
       {/* <AddForm arr={handleClick}/>  
       <Post data={data} /> */}
       <Footer />

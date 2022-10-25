@@ -1,0 +1,120 @@
+
+.container{
+    @apply mx-auto max-w-5xl w-full
+}
+
+.cv_main{
+    @apply flex flex-wrap space-x-0 gap-10
+}
+
+.about{
+    &__photo{
+        @apply w-64 h-64 rounded-full mb-5
+    }
+    &__block{
+        @apply bg-slate-800 w-80 p-6 flex-initial 
+    }
+    &__contacts{ 
+        li{
+            @apply mb-2;          
+        } 
+        @apply mb-5;      
+        a{
+            @apply pl-2 text-lg
+        }
+    }
+    &__contacts-text{
+        @apply text-white;
+    }
+    &__hardskils{
+        @apply flex flex-wrap mb-5;
+        span{
+            @apply bg-slate-100 pl-3 pr-3 m-1 rounded-full text-base text-slate-700
+        }
+    }
+    &__languages{
+        @apply mb-5;
+        li{
+            @apply text-slate-50 text-base
+        }
+    }
+    &__hobby{
+        @apply text-slate-50 text-base
+    }
+    
+}
+
+.info{
+    &__block{
+        @apply flex-1 mb-32;
+    }
+    &__description{
+        @apply mt-20
+    }
+    &__fio{
+        @apply font-bold text-4xl text-center mb-5
+    }
+    &__city-age{
+        @apply flex place-content-between mb-5 text-sm
+    }
+    &__position{
+        @apply text-center mb-5; 
+        span{
+            @apply block text-slate-700 
+        }       
+    }
+    &__post{
+        @apply text-lg font-semibold mb-3
+    }
+    &__employment{
+        @apply text-sm 
+    }
+    &__schedule{
+        @apply text-sm mb-5
+    }
+    &__about{
+        @apply text-base text-left
+    }
+    &__experience{
+        @apply mb-5;
+        &__table{
+            @apply border-collapse
+        }
+        &__year{
+            @apply w-32 align-top text-base text-slate-700 font-medium
+        }
+        &__organization{
+            @apply font-semibold text-slate-700
+        }
+        &__position{
+            @apply font-normal text-sm mb-3
+        }
+        &__description{
+            @apply text-base font-normal mb-5
+        }
+        
+    }
+    &__education{
+        @apply mb-5;
+        &__year{
+            @apply w-32 align-top
+        }
+        &__institution{
+            @apply font-semibold text-slate-700
+        }
+        &__department{
+            @apply font-normal text-sm mb-3 
+        }
+        &__specialization{
+            @apply text-base font-normal mb-5 
+        }
+    }
+}
+
+.about__caption{
+    @apply bg-slate-50 w-full h-10 text-center pt-2 font-bold font-sans uppercase mb-5 text-slate-700
+}
+.info__caption{
+    @apply bg-slate-700 w-full h-10 text-center pt-2 text-white font-bold font-sans uppercase mb-5
+}
+
