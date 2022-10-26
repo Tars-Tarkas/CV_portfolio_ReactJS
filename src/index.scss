@@ -43,28 +43,59 @@ i {
 }
 .icon-linkedin:before {
   content: "\e902";
-  font-size: rem(20);
+  font-size: 20px;
   color: white
 }
 .icon-info:before {
   content: "\e903";
-  font-size: rem(15);
+  font-size: 15px;
   color: black
 }
 .icon-location:before {
   content: "\e904";
-  font-size: rem(15);
-  color: black
+  font-size: 15px;
+  color: black;
 }
 .icon-phone:before {
   content: "\e905";
-  font-size: rem(20);
-  color: white
+  font-size: 20px;
+  color: white;
 }
 .icon-telegram:before {
   content: "\e906";
-  font-size: rem(20);
-  color: white
+  font-size: 20px;
+  color: white;
+}
+.icon-home:before {
+  content: "\e907";
+  font-size: 20px;
+  color: white;
+}
+.icon-edit:before {
+  content: "\e908";
+  font-size: 20px;
+  color: white;
+}
+.icon-trash:before {
+  content: "\e9ac";
+  font-size: 20px;
+  color: black;
+}
+.icon-close:before {
+  content: "\ea0f";
+  font-size: 20px;
+  color: white;  
+}
+
+.icon-circle-right:before {
+  content: "\ea42";
+  font-size: 20px;
+  color: white;  
+}
+.icon-circle-down:before {
+  content: "\ea43";
+   font-size: 20px;
+  color: white;  
 }
 
 body {

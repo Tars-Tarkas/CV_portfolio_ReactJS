@@ -1,0 +1,6 @@
+.portfolio{
+    @apply text-center;
+    &__addbtn{
+        @apply bg-slate-600 text-white px-2 py-1 rounded-md
+    }
+}

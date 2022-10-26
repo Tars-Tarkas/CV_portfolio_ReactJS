@@ -1,24 +1,66 @@
 .wrapper{
     @apply max-w-4xl mx-auto ;
 }
-.post__item{
-    @apply pt-5 pb-5;
+
+.post{
+    @apply relative;
+    &__none{
+        @apply text-sm text-slate-500 cursor-none line-through pointer-events-none
+    }
+    &__item{
+        @apply pt-5 pb-5;
+    }
+    &__inner{
+        @apply bg-slate-200 p-4 rounded-md;
+    }
+    &__date{
+        @apply text-xs text-slate-500
+    }
+    &__description__title{
+        @apply bg-slate-700 text-white h-8 font-medium rounded-md pl-2 
+    }
+    &__page__link{
+        @apply flex mb-2
+    }
+    &__page__link li a{
+        @apply pr-3 text-sm
+    }
+    &__delete{
+        @apply absolute top-8 right-5 cursor-pointer text-slate-700
+    }
 }
-.post__inner{
-    @apply bg-slate-200 w-full p-2 rounded-md;
-}
-.description__title{
-    @apply bg-slate-700 text-white h-8 font-medium rounded-md
-}
+
+
+
 h2{
     @apply font-medium text-lg
 }
-.post__page__link{
-    @apply flex mb-2
-}
+
 hr{
     @apply block h-1 border-0 border-t-2 m-1 p-0 bg-slate-500;  
 }
-.post__date{
-    @apply text-xs text-slate-500
+
+details summary::-webkit-details-marker {
+    display: none
+}
+
+details > summary {
+    list-style: none;  
+    display: flex;
+    align-items: center; 
+}
+
+details summary:before {
+    content: "\ea42";
+    font-size: 18px;
+    color: white;    
+    margin-right: 10px;
+    font-family: "CV";       
+}
+
+details[open] summary:before {
+    content: "\ea43";
+    font-size: 18px;
+    color: white; 
+    font-family: "CV";    
 }

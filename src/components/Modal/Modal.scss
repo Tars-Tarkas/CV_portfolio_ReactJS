@@ -1,0 +1,41 @@
+.modal{
+    @apply fixed top-0 left-0 right-0 bottom-0 bg-slate-500 backdrop-opacity-70 flex items-center justify-center z-50;
+    &__content{
+        @apply rounded-md w-[50rem] bg-slate-700 relative px-8 pt-10
+    }
+    &__close{
+        @apply cursor-pointer absolute top-2 right-2 z-50 hover:drop-shadow-lg
+    }
+    
+    &__input{
+        @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 mr-2 placeholder:text-base;
+    }
+    &__textarea{
+        @apply w-full h-20 focus:outline-none rounded-md px-2 resize-none placeholder:text-base;
+    }
+    &__btn{
+        @apply bg-white rounded-md text-sm font-medium px-8 py-1 mb-10;
+    }
+    &__form{
+        @apply relative text-center block;;  
+    }
+    &__form > *{    
+        @apply mb-4;
+    }
+    &__input__title{
+        @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 placeholder:text-center text-center placeholder:text-base;
+    }
+}
+
+
+
+
+
+
+.input__page__link{
+    @apply columns-2;
+}
+
+
+
+
