@@ -37,7 +37,7 @@ function Modal( {arr, showModal, OnClose} ){
     
         <div className="modal">
             <div className="modal__content">          
-                <a href="_" onClick={OnClose}><i className="modal__close icon-close"></i></a>
+                <i onClick={OnClose} className="modal__close icon-close"></i>
                 <form onSubmit={handleSubmit} className = "modal__form">          
                        <input
                         type="text"

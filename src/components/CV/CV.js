@@ -22,9 +22,8 @@ function CV(){
         setReadFile({ loading: false, data: data });       
       })
       .catch(e => SerError(e))      
-  }, [setReadFile]);  
-   
-    console.log(error);
+  }, [setReadFile]);     
+    
     return ( 
       <div>
        {!error ? <ListLoading isLoading={readFile.loading} data={readFile.data} /> : <div className='error'>Ошибка открытия файла</div>}  

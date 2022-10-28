@@ -10,16 +10,11 @@ import Portfolio from "./components/Portfolio/Portfolio"
 function App() {     
   return (
     <div>
-      <Header />      
+      <Header />       
       <Routes>     
-        <Route path="/" element={<CV />} />
-        <Route path="/portfolio" element={<Portfolio />} />     
-      </Routes>
-     
-
-   
-      {/* <CV />     
-      <Portfolio /> */}
+        <Route exact path="/" element={<CV />} />
+        <Route exact path="/portfolio" element={<Portfolio />} />     
+      </Routes>   
       <Footer />
     </div>
   )
