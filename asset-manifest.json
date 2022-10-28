@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Tars-Tarkas/CV_portfolio_ReactJS/static/css/main.e8f9169f.css",
-    "main.js": "/Tars-Tarkas/CV_portfolio_ReactJS/static/js/main.77b302da.js",
-    "static/js/787.1ed0c42c.chunk.js": "/Tars-Tarkas/CV_portfolio_ReactJS/static/js/787.1ed0c42c.chunk.js",
-    "static/media/CV.svg?p6sipa": "/Tars-Tarkas/CV_portfolio_ReactJS/static/media/CV.4b1b07315fe81b3fd1cc.svg",
-    "static/media/CV.eot?p6sipa": "/Tars-Tarkas/CV_portfolio_ReactJS/static/media/CV.b25384bbadae256ee086.eot",
-    "static/media/CV.woff?p6sipa": "/Tars-Tarkas/CV_portfolio_ReactJS/static/media/CV.b531d855450188c44b7a.woff",
-    "static/media/CV.ttf?p6sipa": "/Tars-Tarkas/CV_portfolio_ReactJS/static/media/CV.d887a61bd9e06f5e17b3.ttf",
-    "index.html": "/Tars-Tarkas/CV_portfolio_ReactJS/index.html",
-    "main.e8f9169f.css.map": "/Tars-Tarkas/CV_portfolio_ReactJS/static/css/main.e8f9169f.css.map",
-    "main.77b302da.js.map": "/Tars-Tarkas/CV_portfolio_ReactJS/static/js/main.77b302da.js.map",
-    "787.1ed0c42c.chunk.js.map": "/Tars-Tarkas/CV_portfolio_ReactJS/static/js/787.1ed0c42c.chunk.js.map"
+    "main.css": "/CV_portfolio_ReactJS/static/css/main.33b13767.css",
+    "main.js": "/CV_portfolio_ReactJS/static/js/main.6bc82918.js",
+    "static/js/787.1ed0c42c.chunk.js": "/CV_portfolio_ReactJS/static/js/787.1ed0c42c.chunk.js",
+    "static/media/CV.svg?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.4b1b07315fe81b3fd1cc.svg",
+    "static/media/CV.eot?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.b25384bbadae256ee086.eot",
+    "static/media/CV.woff?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.b531d855450188c44b7a.woff",
+    "static/media/CV.ttf?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.d887a61bd9e06f5e17b3.ttf",
+    "index.html": "/CV_portfolio_ReactJS/index.html",
+    "main.33b13767.css.map": "/CV_portfolio_ReactJS/static/css/main.33b13767.css.map",
+    "main.6bc82918.js.map": "/CV_portfolio_ReactJS/static/js/main.6bc82918.js.map",
+    "787.1ed0c42c.chunk.js.map": "/CV_portfolio_ReactJS/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8f9169f.css",
-    "static/js/main.77b302da.js"
+    "static/css/main.33b13767.css",
+    "static/js/main.6bc82918.js"
   ]
 }
