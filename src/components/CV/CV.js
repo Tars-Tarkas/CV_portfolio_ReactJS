@@ -5,7 +5,7 @@ import "./CV.scss"
 
 
 
-function CV(){    
+function CV ({title}) {    
     const ListLoading = withListLoading(CVList);
     const [readFile, setReadFile] = useState({
     loading: false,
@@ -19,16 +19,25 @@ function CV(){
     fetch(jsonfile)
       .then((res) => res.json())
       .then((data) => {
-        setReadFile({ loading: false, data: data });       
+        setReadFile({ loading: false, data: data });              
       })
       .catch(e => SerError(e))      
-  }, [setReadFile]);     
+  }, [setReadFile]);
+
+  useEffect(()=> {
+    document.title = title;
+  });
     
     return ( 
       <div>
-       {!error ? <ListLoading isLoading={readFile.loading} data={readFile.data} /> : <div className='error'>Ошибка открытия файла</div>}  
+      {!error ? 
+      <ListLoading isLoading={readFile.loading} data={readFile.data} /> : 
+      <div className="error__block">
+        <div className='error__text'>Ошибка открытия файла</div>
+      </div>}  
+  
       </div>
     )
 }
 
-export default CV
+export default CV;

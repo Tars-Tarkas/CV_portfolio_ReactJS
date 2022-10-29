@@ -3,7 +3,7 @@ import NavBar from "../NavBar/NavBar"
 import "./Header.scss"
 
 
-function Header(){
+const Header = () => {
 
     return(
         <header className="header">

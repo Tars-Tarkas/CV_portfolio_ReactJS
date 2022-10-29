@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./Portfolio.scss";
@@ -15,46 +15,66 @@ let postList = [
     title: "Портфолио",
     page: "https://www.page.page",
     linkrep: "https://www.link.rep",
-    description: "Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum."
+    description: "Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum."    
   },
 ];
 
-function Portfolio() {  
+const Portfolio = ({title}) => {  
   const [data, setData] = useState(postList); 
   const [showModal, SetShowModal] = useState(false)
 
-  const handleClick = (value) =>{
-    setData([value, ...data]);
-    SetShowModal(false)
-  }
+ 
+  // const [editingText, setEditingText] = React.useState("");
+
+  useEffect(() => {
+    document.title = title;
+  });  
+
+  const handleClick = (value) => setData([value, ...data]);
   
-  function OnOpen(){
-    SetShowModal(true)
+  // function submitEdits(id) {
+  //   const updatedTodos = [...data].map((data) => {
+  //     if (data.id === id) {
+  //       data.text = editingText;
+  //     }
+  //     return data;
+  //   });
+  //   setData(updatedTodos);    
+  // }
+
+  const removePost = (item) =>{
+    const newPost = data.filter((post) =>{
+      return post !== item;
+    })
+    setData(newPost)
   }
+
+  const openModal = () => SetShowModal(true);
   
-  function OnClose(){
-    SetShowModal(false)
-  }
+  const hideModal = () => SetShowModal(false);
+
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 27){
+      SetShowModal(false)
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress, false);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress, false);
+    };
+  }, []);
   
 
   return (
     <div>
-        <div className="portfolio">
-        <button onClick={OnOpen} className="portfolio__addbtn">Добавить работу</button>
-        </div>
-      {/* <Router>
-      <NavBar />
-        <Switch>
-          <Route path='/' exact component={CV} />
-          <Route path='/portfolio' component={Post} />        
-          <Route path='/addform' component = {{AddForm arr={handleClick}/}} />        
-        </Switch>
-      </Router> */}
-         
-      {/* <CV />      */}
-      <Modal arr={handleClick} showModal={showModal} OnClose={OnClose}/>    
-      <Post data={data} />
-      
+      <div className="portfolio">
+          <button onClick={openModal} className="portfolio__addbtn">Добавить работу</button>
+      </div>        
+      <Modal arr={handleClick} showModal={showModal} hideModal={hideModal} />    
+      <Post data={data} removePost={removePost}/>      
     </div>
   )
  

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 let uId = () => new Date().getTime();
 
-function getObj(){
+const getObj = () => {
     let initialValues = {
       id: uId(),       
       title: "",
@@ -17,15 +17,15 @@ function getObj(){
   } 
 
 
-function Modal( {arr, showModal, OnClose} ){
+const Modal = ( {arr, showModal, hideModal} ) => {
     const [obj, setObj] = useState(getObj) 
   
   
-    function handleInputChange(prop, e){       
+    const handleInputChange = (prop, e) => {       
       setObj({ ...obj, [prop]: e.target.value })     
     }
 
-    function handleSubmit(e){
+    const handleSubmit = (e) => {
       e.preventDefault();
       arr(obj);           
       setObj(getObj());    
@@ -33,11 +33,13 @@ function Modal( {arr, showModal, OnClose} ){
   
     if (!showModal) {
         return null}
-    return(
-    
-        <div className="modal">
-            <div className="modal__content">          
-                <i onClick={OnClose} className="modal__close icon-close"></i>
+    return(    
+        <div className="modal" onClick={hideModal} >
+            <div className="modal__content" onClick = {e => e.stopPropagation() }>          
+                <div className="modal__close">
+                  <i onClick={hideModal} className="icon-close"></i>
+                  <span>Esc</span>
+                </div>
                 <form onSubmit={handleSubmit} className = "modal__form">          
                        <input
                         type="text"
@@ -75,12 +77,8 @@ function Modal( {arr, showModal, OnClose} ){
                         placeholder = "Добавить описание проекта"
                         onChange = {(e) => handleInputChange("description", e)}                
                       />   
-                  <button 
-                    className = "modal__btn">Добавить
-                  </button>             
-                </form>                 
-            
-
+                  <button className = "modal__btn">Добавить</button>             
+                </form>        
             </div>
         </div>
     )

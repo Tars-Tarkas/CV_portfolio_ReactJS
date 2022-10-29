@@ -33,38 +33,31 @@ i {
 
 .icon-email:before {
   content: "\e900";
-  font-size: rem(20);
-  color: white;
+  @apply text-white text-lg 
 }
 .icon-github:before {
   content: "\e901";
-  font-size: rem(20);
-  color: white
+  @apply text-white text-lg  
 }
 .icon-linkedin:before {
   content: "\e902";
-  font-size: 20px;
-  color: white
+  @apply text-white text-lg 
 }
 .icon-info:before {
   content: "\e903";
-  font-size: 15px;
-  color: black
+  @apply text-slate-600 text-sm 
 }
 .icon-location:before {
   content: "\e904";
-  font-size: 15px;
-  color: black;
+  @apply text-slate-600 text-sm
 }
 .icon-phone:before {
   content: "\e905";
-  font-size: 20px;
-  color: white;
+  @apply text-white text-lg
 }
 .icon-telegram:before {
   content: "\e906";
-  font-size: 20px;
-  color: white;
+  @apply text-white text-lg 
 }
 .icon-home:before {
   content: "\e907";
@@ -73,37 +66,50 @@ i {
 }
 .icon-edit:before {
   content: "\e908";
-  font-size: 20px;
-  color: white;
+  @apply text-slate-600 text-lg
 }
-.icon-trash:before {
+.icon-trash:before { 
   content: "\e9ac";
-  font-size: 20px;
-  color: black;
+  @apply text-slate-600 text-lg 
 }
 .icon-close:before {
   content: "\ea0f";
-  font-size: 20px;
-  color: white;  
+  @apply text-white text-lg 
 }
-
 .icon-circle-right:before {
   content: "\ea42";
-  font-size: 20px;
-  color: white;  
+  @apply text-white text-lg 
 }
 .icon-circle-down:before {
   content: "\ea43";
-   font-size: 20px;
-  color: white;  
+  @apply text-white text-lg
+}
+
+*{
+  margin: 0;
+	padding: 0;
+}
+html {
+  height: 100%;
 }
 
 body {
   margin: 0;
+  max-width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100%;
+  margin: 0; 
 }
 
+.container{  
+  @apply max-w-5xl mx-auto w-full
+}
+
+footer { 
+  @apply absolute bottom-0 w-full h-10 bg-slate-900
+}

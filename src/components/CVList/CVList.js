@@ -2,7 +2,7 @@ import React from 'react';
 import "./CVList.scss"
 
 
-const CVList = (props) => {
+function CVList (props){
   const { data } = props;
   if (!data || data.length === 0) return <p>Нет данных</p>;
    
@@ -64,7 +64,7 @@ const CVList = (props) => {
                   <div className='info__fio'>{item.lastname} {item.firstname} {item.patronymic}</div>
                   <div className='info__city-age'>
                     <div><i className='icon-location' /> {item.city}</div>
-                    <div><i className='icon-location' /> Возраст: {item.age}</div>
+                    <div><i className='icon-info' /> Возраст: {item.age}</div>
                   </div>
                   
                 </div>
