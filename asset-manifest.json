@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/CV_portfolio_ReactJS/static/css/main.b8353283.css",
-    "main.js": "/CV_portfolio_ReactJS/static/js/main.f53513bb.js",
+    "main.css": "/CV_portfolio_ReactJS/static/css/main.c931ca78.css",
+    "main.js": "/CV_portfolio_ReactJS/static/js/main.582c0af5.js",
     "static/js/787.1ed0c42c.chunk.js": "/CV_portfolio_ReactJS/static/js/787.1ed0c42c.chunk.js",
     "static/media/CV.svg?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.4b1b07315fe81b3fd1cc.svg",
     "static/media/CV.eot?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.b25384bbadae256ee086.eot",
     "static/media/CV.woff?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.b531d855450188c44b7a.woff",
     "static/media/CV.ttf?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.d887a61bd9e06f5e17b3.ttf",
     "index.html": "/CV_portfolio_ReactJS/index.html",
-    "main.b8353283.css.map": "/CV_portfolio_ReactJS/static/css/main.b8353283.css.map",
-    "main.f53513bb.js.map": "/CV_portfolio_ReactJS/static/js/main.f53513bb.js.map",
+    "main.c931ca78.css.map": "/CV_portfolio_ReactJS/static/css/main.c931ca78.css.map",
+    "main.582c0af5.js.map": "/CV_portfolio_ReactJS/static/js/main.582c0af5.js.map",
     "787.1ed0c42c.chunk.js.map": "/CV_portfolio_ReactJS/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b8353283.css",
-    "static/js/main.f53513bb.js"
+    "static/css/main.c931ca78.css",
+    "static/js/main.582c0af5.js"
   ]
 }
