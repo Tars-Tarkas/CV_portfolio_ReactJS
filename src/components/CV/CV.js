@@ -5,23 +5,23 @@ import "./CV.scss"
 
 
 
-function CV ({title}) {    
+const CV = ({title}) => {    
     const ListLoading = withListLoading(CVList);
     const [readFile, setReadFile] = useState({
-    loading: false,
+    loading: false,    
     data: null,
   });
-    const [error, SerError] = useState("");
+    const [error, SetError] = useState("");
   
   useEffect(() => {
-    setReadFile({ loading: true });
-    const jsonfile = `./cv.json`;
+    setReadFile({ loading: true, error:true });
+    const jsonfile = "./cv.json";
     fetch(jsonfile)
       .then((res) => res.json())
       .then((data) => {
         setReadFile({ loading: false, data: data });              
       })
-      .catch(e => SerError(e))      
+      .catch(e => SetError(e))      
   }, [setReadFile]);
 
   useEffect(()=> {
@@ -29,13 +29,8 @@ function CV ({title}) {
   });
     
     return ( 
-      <div>
-      {!error ? 
-      <ListLoading isLoading={readFile.loading} data={readFile.data} /> : 
-      <div className="error__block">
-        <div className='error__text'>Ошибка открытия файла</div>
-      </div>}  
-  
+      <div>       
+        <ListLoading error={error} isLoading={readFile.loading} data={readFile.data} />  
       </div>
     )
 }

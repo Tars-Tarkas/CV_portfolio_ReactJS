@@ -2,7 +2,7 @@ import React from 'react';
 import "./CVList.scss"
 
 
-function CVList (props){
+const CVList = (props) => {
   const { data } = props;
   if (!data || data.length === 0) return <p>Нет данных</p>;
    

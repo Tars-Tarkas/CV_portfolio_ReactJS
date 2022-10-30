@@ -107,9 +107,10 @@ body {
 }
 
 .container{  
-  @apply max-w-5xl mx-auto w-full
+  @apply max-w-5xl mx-auto w-full pl-2 pr-2
 }
 
 footer { 
   @apply absolute bottom-0 w-full h-10 bg-slate-900
 }
+

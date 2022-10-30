@@ -19,10 +19,10 @@ const Post = ({ data, removePost}) => {
             </div>
             <div className="post__item" >          
               <div className="post__inner">                            
-                <span className="post__date">Дата добавления: {item.date}</span>
+                <span className="post__date">Дата добавления: {!item.date ? dataPost(item.id): item.date}</span>
                 <h2>{item.title}</h2>
                 <hr />             
-                <ul className="post__page__link">
+                <ul className={!item.page ? "post__page__link__none" : "post__page__link"}>
                   <li>
                     <a href={item.page} target="_blank" rel="noreferrer">
                       Ссылка на страницу
@@ -37,7 +37,8 @@ const Post = ({ data, removePost}) => {
                 <details>
                   <summary className="post__description__title">Описание проекта</summary>
                   <p>{item.description}</p>
-                </details>
+                  <hr />   
+                </details>                
               </div>        
             </div>           
           </div>                                         
