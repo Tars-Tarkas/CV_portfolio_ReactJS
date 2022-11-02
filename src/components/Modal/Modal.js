@@ -25,61 +25,81 @@ const Modal = ( {arr, showModal, hideModal} ) => {
       setObj({ ...obj, [prop]: e.target.value })     
     }
 
+    const clearInput = (prop, e) =>{
+      e.preventDefault();        
+      setObj({ ...obj, [prop]:"" })
+    }
+
     const handleSubmit = (e) => {
       e.preventDefault();
       arr(obj);           
-      setObj(getObj());    
+      setObj(getObj());  
+      e.target.reset();        
     }    
   
     if (!showModal) {
         return null}
     return(    
         <div className="modal" onClick={hideModal} >
+        <div className="container">
             <div className="modal__content" onClick = {e => e.stopPropagation() }>          
-                <div className="modal__close">
-                  <i onClick={hideModal} className="icon-close"></i>
-                  <span>Esc</span>
-                </div>
-                <form onSubmit={handleSubmit} className = "modal__form">          
-                       <input
-                        type="text"
-                        className = "modal__input__title"
-                        value = {obj.title}
-                        required="required"
-                        placeholder = "Добавить заголовок"
-                        onChange = {(e) => handleInputChange("title", e)}                           
-                      />         
-                  <div className = "input__page__link">
-                      <div>
+                
+                <form onSubmit={handleSubmit} className = "modal__form"> 
+                 
+                  <div className="modal__form__title">
+                    <input
+                      type="text"                      
+                      className = "modal__input__title"
+                      value = {obj.title || ''}
+                      required="required"
+                      placeholder = "Добавить заголовок"
+                      onChange = {(e) => handleInputChange("title", e)}                           
+                    />                     
+                    <i onClick={(e) => clearInput("title", e)} className="icon-close clear__btn"></i>
+                  </div>
+                  <div className = "modal__input__page__link">
+                      <div className="modal__form__page">
                           <input
                             type="text"
-                            className = "modal__input"
-                            value = {obj.page}                            
+                            className = "modal__input modal__input__page"
+                            value = {obj.page || ''}                            
                             placeholder = "Ссылка на страницу"
                             onChange = {(e) => handleInputChange("page", e)}                
                             />
+                           <i onClick={(e) => clearInput("page", e)} className="icon-close clear__btn"></i>
                       </div>
-                      <div>
+                      <div className="modal__form__linkrep">
                           <input
                             type="text"
                             className = "modal__input"
-                            value = {obj.linkrep}                            
+                            value = {obj.linkrep || ''}                            
                             placeholder = "Ссылка на репозитарий"
                             onChange = {(e) => handleInputChange("linkrep", e)}                                                        
                           />
+                          <i onClick={(e) => clearInput("linkrep", e)} className="icon-close clear__btn"></i>
                       </div>
-                  </div>                    
-                      <textarea
-                        type="text"
-                        className = "modal__textarea"
-                        value = {obj.description}
-                        required="required"
-                        placeholder = "Добавить описание проекта"
-                        onChange = {(e) => handleInputChange("description", e)}                
-                      />   
-                  <button className = "modal__btn">Добавить</button>             
-                </form>        
-            </div>
+                  </div>
+                    <div className="modal__form__textarea">
+                        <textarea
+                          type="text"
+                          className = "modal__textarea"
+                          value = {obj.description || ''}
+                          required="required"
+                          placeholder = "Добавить описание проекта"
+                          onChange = {(e) => handleInputChange("description", e)}                
+                        />   
+                        <i onClick={(e) => clearInput("description", e)} className="icon-close clear__btn"></i>
+                      </div>                    
+                  <button className = "modal__btn">Добавить</button>                         
+                </form> 
+                <div className="modal__close">
+                    <div className="modal__close__block">
+                      <i onClick={hideModal} className="icon-close"></i>
+                      <span>Esc</span>
+                    </div>
+                </div>         
+            </div> 
+          </div>        
         </div>
     )
 }

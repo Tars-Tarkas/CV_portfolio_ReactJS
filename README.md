@@ -1,18 +1,20 @@
 
 ### Языки программирования и инструменты
 <div id="badges">
-  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" width="60" alt="ReactJS"/>
-  <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" width="60" alt="SASS"/>  
-  <img src="https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original-wordmark.svg" width="60" alt="Tailwind CSS"/> 
+  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" height ="60" alt="ReactJS"/>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" height ="60" alt="SASS"/>  
+  <img src="https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original-wordmark.svg" height ="60" alt="Tailwind CSS"/> 
 </div>
 
 # Первая опыт создания сайта-приложения на React JS.
 
 Для запуска:
 > git clone https://github.com/Tars-Tarkas/CV_portfolio_ReactJS.git
+
 > cd Portfolio
 
 > npm install
+
 > npm start
 
 

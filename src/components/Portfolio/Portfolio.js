@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./Portfolio.scss";
@@ -69,13 +69,14 @@ const Portfolio = ({title}) => {
   
 
   return (
-    <div>
-      <div className="portfolio">
+    <Fragment>
+      <div className="container portfolio">
           <button onClick={openModal} className="portfolio__addbtn">Добавить работу</button>
+          <Post data={data} removePost={removePost}/>   
       </div>        
       <Modal arr={handleClick} showModal={showModal} hideModal={hideModal} />    
-      <Post data={data} removePost={removePost}/>      
-    </div>
+         
+    </Fragment>
   )
  
 };

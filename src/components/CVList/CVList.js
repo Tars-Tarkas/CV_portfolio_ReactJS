@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import "./CVList.scss"
 
 
@@ -10,11 +10,13 @@ const CVList = (props) => {
     <div className='container'>
       <div className='cv_main'>
         <div className='about__block'>
-          <div>
+          <div >
               {data.contacts.map((item, index)=>{
                 return(
-                  <div key={index}>
-                    <img className='about__photo' alt='' src={item.photo}/>
+                  <div key={index} className='about__contacts__block'>
+                    <div className='about__photo' >
+                      <img alt='' src={item.photo}/>
+                    </div>
                     <div className='about__caption'>Контакты</div>
                     <ul className='about__contacts'>
                       <li className='about__contacts-text'><i className='icon-phone' /><a href={item.tel} target="_blank" rel='noreferrer'>{item.tel.slice(4)}</a></li>
@@ -27,7 +29,7 @@ const CVList = (props) => {
                 )
               })}
           </div> 
-          
+          <div className='about__hardskils__block'>
             <div className='about__caption'>Навыки</div>
             <div className='about__hardskils'>
             {data.hardskils.map((item, index)=>{
@@ -35,8 +37,10 @@ const CVList = (props) => {
                   <span key={index}>{item}</span>
               )
             })}
+            </div>
           </div>
           
+          <div className='about__languages__block'>
             <div className='about__caption'>Знание языков</div>
             <ul className='about__languages'>
             {data.languages.map((item, index)=>{
@@ -44,8 +48,10 @@ const CVList = (props) => {
                   <li key={index}>{item}</li>     
               )
             })}
-          </ul>
+            </ul>
+          </div>
           
+          <div className='about__hobby__block'>
             <div className='about__caption'>Хобби</div>
             <ul className='about__hobby'>
             {data.hobby.map((item, index)=>{
@@ -53,7 +59,8 @@ const CVList = (props) => {
                 <li key={index}>{item}</li>
               )
             })}
-          </ul>    
+            </ul>    
+          </div>
         </div>
 
         <div className='info__block'>
@@ -123,12 +130,10 @@ const CVList = (props) => {
               )
             })}
           </div>
-
         </div> 
       </div>
     </div>
-
-
   );
 };
+
 export default CVList;

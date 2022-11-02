@@ -1,13 +1,13 @@
 .post{
-    @apply relative;
+    @apply flex mt-5 mb-5 flex-row;
     &__none{
         @apply text-sm text-slate-500 cursor-none line-through pointer-events-none
     }
     &__item{
-        @apply mt-5 mb-5;
+        @apply  basis-1/9;
     }
     &__inner{
-        @apply bg-slate-200 p-4 rounded-md;
+        @apply bg-slate-200 p-4 rounded-md text-left;
     }
     &__date{
         @apply text-xs text-slate-500
@@ -16,22 +16,34 @@
         @apply bg-slate-700 text-white h-8 font-medium rounded-md pl-2 
     }
     &__page__link{
-        @apply flex mb-2 leading-3;
+        @apply mb-2 leading-3;
         &__none{
-            @apply flex mb-2 leading-3
+            @apply mb-2 leading-3
         }
-        &__none >li >a{
+        &__none >a{
             @apply pr-3 text-sm text-slate-400 line-through pointer-events-none
         }
+        &__block{
+            @apply flex
+        }
     }    
-    &__page__link li a{
+    &__page__link a{
         @apply pr-3 text-sm 
     }
     &__icon{
-        @apply absolute top-8 right-5;        
+        @apply basis-9/1 pl-2;  
+        &__block{
+            @apply flex justify-center flex-wrap;
+            >i{
+                @apply w-8 h-8 bg-slate-200 flex justify-center items-center rounded-md
+            }
+            span{
+                @apply text-xs text-slate-500
+            }
+        }      
     }
     &__delete{
-        @apply cursor-pointer pl-3 
+        @apply cursor-pointer 
     }
     &___edit{
         @apply cursor-pointer

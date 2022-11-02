@@ -1,20 +1,29 @@
 .modal{
     @apply bg-opacity-80 fixed top-0 left-0 h-screen w-screen bg-slate-500 backdrop-opacity-90 flex items-center justify-center z-50 ;
     &__content{
-        @apply rounded-md w-[50rem] bg-slate-700 relative px-8 pt-10
+        @apply flex flex-row   
     }
     &__close{
-        @apply cursor-pointer absolute top-0 -right-10 z-50  inline-flex flex-col items-center;
-        >span{
-            @apply leading-8 text-sm text-white
+        @apply basis-9/1 cursor-pointer z-50 ;
+        &__block{
+            @apply flex justify-center flex-wrap pl-2;
+            >span{
+                @apply leading-8 text-sm text-white
+            }
+            >i{
+                @apply bg-opacity-80  bg-slate-600 w-8 h-8 rounded-md flex items-center justify-center hover:drop-shadow-md
+            }
         }
-        >i{
-            @apply bg-opacity-80  bg-slate-600 w-8 h-8 rounded-md flex items-center justify-center hover:drop-shadow-md
-        }
-    }
-    
+       
+    }    
     &__input{
-        @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 mr-2 placeholder:text-base;
+        @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 mr-2 placeholder:text-base;  
+        &__page__link{
+            @apply sm:columns-2;
+        }
+        &__page{
+            @apply mb-5 sm:mb-0
+        }         
     }
     &__textarea{
         @apply w-full h-20 focus:outline-none rounded-md px-2 resize-none placeholder:text-base;
@@ -23,24 +32,39 @@
         @apply bg-white rounded-md text-sm font-medium px-8 py-1 mb-10;
     }
     &__form{
-        @apply relative text-center block;;  
+        @apply basis-1/9 text-center block bg-slate-700 px-3 pt-10 rounded-md ;
+        &__textarea{
+            @apply relative
+        }
+        &__linkrep{
+            @apply relative
+        }
+        &__page{
+            @apply relative
+        }
+        &__title{
+            @apply relative
+        }
     }
     &__form > *{    
-        @apply mb-4;
+        @apply mb-4 ;
     }
     &__input__title{
         @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 placeholder:text-center text-center placeholder:text-base;
     }
 }
 
-
-
-
-
-
-.input__page__link{
-    @apply columns-2;
+.clear__btn{
+    @apply w-5 h-5 bg-slate-100 rounded-full absolute flex items-center justify-center top-[3.5px] right-1 cursor-pointer
 }
+.clear__btn::before{
+    @apply text-slate-300 text-xs
+}
+
+.clear__btn:hover::before{
+    @apply text-slate-500 transition-all
+}
+
 
 
 

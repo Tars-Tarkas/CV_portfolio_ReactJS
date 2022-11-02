@@ -3,15 +3,13 @@ import withListLoading from "../../HOC/withListLoading";
 import CVList from "../CVList/CVList";
 import "./CV.scss"
 
-
-
 const CV = ({title}) => {    
     const ListLoading = withListLoading(CVList);
     const [readFile, setReadFile] = useState({
     loading: false,    
     data: null,
   });
-    const [error, SetError] = useState("");
+    const [error, SetError] = useState(false);
   
   useEffect(() => {
     setReadFile({ loading: true, error:true });
@@ -28,10 +26,8 @@ const CV = ({title}) => {
     document.title = title;
   });
     
-    return ( 
-      <div>       
-        <ListLoading error={error} isLoading={readFile.loading} data={readFile.data} />  
-      </div>
+    return (        
+        <ListLoading error={error} isLoading={readFile.loading} data={readFile.data} />        
     )
 }
 
