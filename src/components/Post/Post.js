@@ -9,6 +9,7 @@ const dataPost = (timestamp) => {
 
 const Post = ({ data, removePost}) => {    
     return(
+    
     <div className="container">         
         {data.map((item) => {                            
           return(              
@@ -47,7 +48,7 @@ const Post = ({ data, removePost}) => {
           </div>                                                   
         )
       })}      
-    </div>
+    </div>    
     )   
 }
 

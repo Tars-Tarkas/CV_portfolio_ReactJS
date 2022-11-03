@@ -69,13 +69,12 @@ const Portfolio = ({title}) => {
   
 
   return (
-    <Fragment>
+    <Fragment>     
       <div className="container portfolio">
           <button onClick={openModal} className="portfolio__addbtn">Добавить работу</button>
           <Post data={data} removePost={removePost}/>   
-      </div>        
-      <Modal arr={handleClick} showModal={showModal} hideModal={hideModal} />    
-         
+      </div>                 
+      <Modal arr={handleClick} showModal={showModal} hideModal={hideModal} />          
     </Fragment>
   )
  

@@ -11,6 +11,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gridTemplateRows: {
+        'layout': 'auto 1fr auto',
+      },
       flexBasis: {
         '1/9': '98%',
         '9/1': '3%',        

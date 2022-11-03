@@ -11,9 +11,9 @@ function App() {
   return (
     <Fragment>
       <Header />       
-      <Routes>     
+      <Routes>       
         <Route exact path="/" element={<CV title="Резюме"/>} />
-        <Route exact path="/portfolio" element={<Portfolio title="Портфолио"/>} />     
+        <Route exact path="/portfolio" element={<Portfolio title="Портфолио"/>} />        
       </Routes>   
       <Footer />
     </Fragment>

@@ -109,25 +109,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  min-height: 100%;
-  margin: 0;
+   min-height: 100%;  
   overflow-x: hidden; 
- 
+  @apply bg-white dark:bg-slate-900;
+
 }
 
 .container{  
-  @apply max-w-5xl mx-auto pl-3 pr-3;
-  // min-height: calc(100vh - 70px - 40px)
-  
+  @apply max-w-5xl mx-auto pl-3 pr-3; 
 }
-// header{
-//   // height: 40px;
-// }
 
-footer { 
-  @apply absolute bottom-0 w-screen h-10 bg-slate-900;
-  // height: 50px;  
-  // @apply bg-slate-800
+#root{ 
+  @apply max-w-screen-xl h-screen grid grid-rows-layout
+}
+
+
+footer {   
+  @apply w-screen h-10 bg-slate-900;
 }
 
