@@ -39,24 +39,11 @@ let postList = [
 const Portfolio = ({ title }) => {
   const [data, setData] = useState(postList);
   const [showModal, SetShowModal] = useState(false);
-
-  // const [editingText, setEditingText] = React.useState("");
-
   useEffect(() => {
     document.title = title;
   });
 
   const handleClick = (value) => setData([value, ...data]);
-
-  // function submitEdits(id) {
-  //   const updatedTodos = [...data].map((data) => {
-  //     if (data.id === id) {
-  //       data.text = editingText;
-  //     }
-  //     return data;
-  //   });
-  //   setData(updatedTodos);
-  // }
 
   const removePost = (item) => {
     const newPost = data.filter((post) => {
