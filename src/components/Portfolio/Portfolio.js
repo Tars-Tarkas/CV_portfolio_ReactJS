@@ -26,7 +26,7 @@ let postList = [
     description: "Задание: сверстать калькулятор лизинга авто Макеты.\n ",
   },
   {
-    id: 112542354235,
+    id: 1125423524545,
     date: "18.02.2023",
     title: "Квалификационные задания для разработчиков HTML/CSS/JS",
     page: "https://tars-tarkas.github.io/funbox-reactjs/",
