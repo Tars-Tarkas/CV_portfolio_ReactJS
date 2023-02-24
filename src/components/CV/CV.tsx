@@ -1,38 +1,40 @@
-// import React, { useEffect, useState } from "react";
-// import withListLoading from "../../HOC/withListLoading.js";
-// import CVList from "../CVList/CVList";
-// import "./CV.module.scss";
+import React, { useEffect, useState } from "react";
+import { WithListLoading } from "../../HOC/withListLoading";
+import { CVList } from "../CVList/CVList";
+import "./CV.module.scss";
+import { ICV } from "../../types/data";
 
-// const CV = ({ title }) => {
-//   const ListLoading = withListLoading(CVList);
-//   const [readFile, setReadFile] = useState({
-//     loading: false,
-//     data: null,
-//   });
-//   const [error, SetError] = useState(false);
+function CV({ title }: { title: string }) {
+  const ListLoading = WithListLoading(CVList);
+  const [readFile, setReadFile] = useState<ICV>({
+    loading: false,
+    data: null,
+    error: false,
+  });
+  const [error, SetError] = useState(false);
 
-//   useEffect(() => {
-//     setReadFile({ loading: true, error: true });
-//     const jsonfile = "./cv.json";
-//     fetch(jsonfile)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setReadFile({ loading: false, data: data });
-//       })
-//       .catch((e) => SetError(e));
-//   }, [setReadFile]);
+  useEffect(() => {
+    setReadFile({ loading: true, error: true });
+    const jsonfile = "./cv.json";
+    fetch(jsonfile)
+      .then((res) => res.json())
+      .then((data) => {
+        setReadFile({ loading: false, data: data });
+      })
+      .catch((e) => SetError(e));
+  }, [setReadFile]);
 
-//   useEffect(() => {
-//     document.title = title;
-//   });
+  useEffect(() => {
+    document.title = title;
+  });
 
-//   return (
-//     <ListLoading
-//       error={error}
-//       isLoading={readFile.loading}
-//       data={readFile.data}
-//     />
-//   );
-// };
+  return (
+    <ListLoading
+      error={error}
+      isLoading={readFile.loading}
+      data={readFile.data}
+    />
+  );
+}
 
-// export default CV;
+export { CV };
