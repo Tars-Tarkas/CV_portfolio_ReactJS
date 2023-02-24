@@ -1,5 +1,5 @@
 // import React from "react";
-// import "./withListLoading.scss";
+// import "./withListLoading.module.scss";
 
 // function withListLoading(Component) {
 //   return function WihLoadingComponent({ error, isLoading, ...props }) {

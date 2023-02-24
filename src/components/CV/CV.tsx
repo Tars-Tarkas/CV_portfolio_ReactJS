@@ -1,11 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { WithListLoading } from "../../HOC/withListLoading";
-import { CVList } from "../CVList/CVList";
+import { useEffect, useState } from "react";
+import * as React from "react";
+import withListLoading from "../../HOC/withListLoading";
+import CVList from "../CVList/CVList";
 import "./CV.module.scss";
-import { ICV } from "../../types/data";
 
-function CV({ title }: { title: string }) {
-  const ListLoading = WithListLoading(CVList);
+interface ICV {
+  loading?: boolean;
+  data?: [] | null;
+  error?: boolean;
+  isLoading?: boolean;
+  title?: string;
+}
+
+const CV: React.FunctionComponent = ({ title }: ICV) => {
+  // const { title }: { title: string } = props;
+
+  const ListLoading = withListLoading(CVList);
   const [readFile, setReadFile] = useState<ICV>({
     loading: false,
     data: null,
@@ -25,7 +35,8 @@ function CV({ title }: { title: string }) {
   }, [setReadFile]);
 
   useEffect(() => {
-    document.title = title;
+    document.title = "ddd";
+    // document.title = title;
   });
 
   return (
@@ -35,6 +46,6 @@ function CV({ title }: { title: string }) {
       data={readFile.data}
     />
   );
-}
+};
 
-export { CV };
+export default CV;

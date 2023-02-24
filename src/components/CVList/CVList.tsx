@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 import "./CVList.scss";
 
-function CVList(data: any) {
+const CVList: React.FunctionComponent = (data: any) => {
   if (!data || data.length === 0) return <p>Нет данных</p>;
   console.log(data);
   return (
@@ -166,5 +166,5 @@ function CVList(data: any) {
       </div>
     </div>
   );
-}
-export { CVList };
+};
+export default CVList;
