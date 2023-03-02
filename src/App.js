@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import CV from "./components/CV/CV";
+
 import Portfolio from "./components/Portfolio/Portfolio";
 
 export default function App() {
@@ -10,7 +11,7 @@ export default function App() {
     <>
       <Header />
       <Routes>
-        <Route exact path="/" element={<CV title="Резюме" />} />
+        <Route exact path="/" element={<CV />} />
         <Route
           exact
           path="/portfolio"

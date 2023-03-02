@@ -1,12 +1,13 @@
 import * as React from "react";
 import "./withListLoading.module.scss";
 
-interface Props {
-  error: boolean;
-  isLoading: boolean;
-}
+// type data = {
+//   error: boolean;
+//   isLoading: boolean;
+//   data: [] | undefined;
+// };
 
-function withListLoading(Component: React.FunctionComponent<Props>) {
+function withListLoading(Component: any) {
   return function WihLoadingComponent({ error, isLoading, ...props }: any) {
     if (error) {
       return (

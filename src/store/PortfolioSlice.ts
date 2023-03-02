@@ -9,8 +9,8 @@ const PortfolioSlice = createSlice({
     AddPost(state, action) {
       state.Portfolio.push();
     },
-    RemovePost(state, action) {
-        state.Portfolio
-    },
+    RemovePost(state, action) {},
   },
 });
+
+export default PortfolioSlice.reducer;
