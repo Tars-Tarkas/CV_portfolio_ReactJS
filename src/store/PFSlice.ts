@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const jfile = "../cv.json";
+const jfile = "../PF.json";
 
-export const fetchCV: any = createAsyncThunk("CV/fetchCV", async function () {
+export const fetchPF: any = createAsyncThunk("PF/fetchPF", async function () {
   const res = await fetch(jfile, {
     method: "POST",
     headers: {
@@ -13,30 +13,30 @@ export const fetchCV: any = createAsyncThunk("CV/fetchCV", async function () {
   return res;
 });
 
-interface ICVtype {
-  CVjson: [];
+interface IPFtype {
+  PFjson: [];
   loading: boolean | null;
 }
 
-const CVSlice = createSlice({
-  name: "CV",
+const PFSlice = createSlice({
+  name: "PF",
   initialState: {
-    CVjson: [],
+    PFjson: [],
     loading: null,
-  } as ICVtype,
+  } as IPFtype,
   reducers: {},
   extraReducers: {
-    [fetchCV.pending]: (state) => {
+    [fetchPF.pending]: (state) => {
       state.loading = false;
     },
-    [fetchCV.fulfilled]: (state, action) => {
-      state.CVjson = action.payload;
+    [fetchPF.fulfilled]: (state, action) => {
+      state.PFjson = action.payload;
       state.loading = true;
     },
-    [fetchCV.rejected]: (state) => {
+    [fetchPF.rejected]: (state) => {
       state.loading = false;
     },
   },
 });
 
-export default CVSlice.reducer;
+export default PFSlice.reducer;

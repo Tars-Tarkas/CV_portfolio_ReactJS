@@ -11,7 +11,7 @@ export default function App() {
     <>
       <Header />
       <Routes>
-        <Route exact path="/" element={<CV />} />
+        <Route exact path="/" element={<CV title="Резюме" />} />
         <Route
           exact
           path="/portfolio"

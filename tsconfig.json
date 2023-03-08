@@ -108,5 +108,5 @@
     "tests/**/*.tsx",
     "index.d.ts", // this
     "src/components/CVList/CVList.tsx"
-  ]
+, "src/components/CV/CV.tsx"  ]
 }
