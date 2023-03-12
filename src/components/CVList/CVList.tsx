@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import "./CVList.scss";
+import Icon from "../Icon/Icon";
 
-const CVList = () => {
+const CVList: React.FC = (): JSX.Element => {
   const { CV, loading } = useSelector((state: any) => state);
 
   return (
@@ -24,25 +25,25 @@ const CVList = () => {
                     </a>
                   </li>
                   <li className="about__contacts-text">
-                    <i className="icon-email" />
+                    <Icon classname="email" />
                     <a href={item.mail} target="_blank" rel="noreferrer">
                       {item.mail.slice(7)}
                     </a>
                   </li>
                   <li className="about__contacts-text">
-                    <i className="icon-telegram" />
+                    <Icon classname="telegram" />
                     <a href={item.telegram} target="_blank" rel="noreferrer">
                       Telegram
                     </a>
                   </li>
                   <li className="about__contacts-text">
-                    <i className="icon-github" />
+                    <Icon classname="github" />
                     <a href={item.github} target="_blank" rel="noreferrer">
                       Github
                     </a>
                   </li>
                   <li className="about__contacts-text">
-                    <i className="icon-linkedin" />
+                    <Icon classname="linkedin" />
                     <a href={item.linkedin} target="_blank" rel="noreferrer">
                       Linkedin
                     </a>
@@ -90,10 +91,12 @@ const CVList = () => {
                   </div>
                   <div className="info__city-age">
                     <div>
-                      <i className="icon-location" /> {item.city}
+                      <Icon classname="location" />
+                      {item.city}
                     </div>
                     <div>
-                      <i className="icon-info" /> Возраст: {item.age}
+                      <Icon classname="info" />
+                      Возраст: {item.age}
                     </div>
                   </div>
                 </div>

@@ -1,14 +1,13 @@
 import * as React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-
-import "./Portfolio.module.scss";
-import Post from "../Post/Post";
+import "./Portfolio.scss";
+import WorkList from "../WorkList/WorkList";
+import Modal from "../Modal/Modal";
 import { fetchPF } from "../../store/PFSlice";
-// import CV from "./components/CV/CV";
-// import Modal from "../Modal/Modal";
+import AdWork from "../AddWork/AddWork";
 
-const Portfolio = ({ title }: any) => {
+const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,14 +18,10 @@ const Portfolio = ({ title }: any) => {
     dispatch(fetchPF());
   }, [dispatch]);
 
-  // const handleClick = (value) => setData([value, ...data]);
+  const onClose = () => setModal(false);
+  const [isModal, setModal] = useState(false);
 
-  // const removePost = (item) => {
-  //   const newPost = data.filter((post) => {
-  //     return post !== item;
-  //   });
-  //   setData(newPost);
-  // };
+  // const handleClick = (value) => setData([value, ...data]);
 
   // const openModal = () => SetShowModal(true);
 
@@ -48,13 +43,15 @@ const Portfolio = ({ title }: any) => {
 
   return (
     <>
-      <div className="container portfolio">
-        {/* <button onClick={openModal} className="portfolio__addbtn">
+      <div className="portfolio">
+        <button className="portfolio__addbtn" onClick={() => setModal(true)}>
           Добавить работу
-        </button> */}
-        <Post />
+        </button>
+        <Modal visible={isModal} content={<AdWork />} onClose={onClose} />
+        <div className="container">
+          <WorkList />
+        </div>
       </div>
-      {/* <Modal arr={handleClick} showModal={showModal} hideModal={hideModal} /> */}
     </>
   );
 };

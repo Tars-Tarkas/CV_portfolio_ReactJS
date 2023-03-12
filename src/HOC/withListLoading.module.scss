@@ -1,8 +1,0 @@
-.message {
-  &__error {
-    @apply mx-auto text-white font-semibold uppercase absolute top-1/2 left-0 right-0 bottom-0 w-64 h-16 bg-red-800 flex items-center justify-center rounded-md;
-  }
-  &__warn {
-    @apply mx-auto text-white font-semibold uppercase absolute top-1/2 left-0 right-0 bottom-0 w-64 h-16 bg-slate-800 flex items-center justify-center rounded-md;
-  }
-}

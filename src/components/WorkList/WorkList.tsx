@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
-import "./Post.module.scss";
+import "./WorkList.scss";
+import Icon from "../Icon/Icon";
 
 const dataPost = (timestamp: number) => {
   return ("" + new Date(timestamp).toISOString())
@@ -8,8 +9,15 @@ const dataPost = (timestamp: number) => {
     .replace(/^(\d+)-(\d+)-(\d+)$/, "$3.$2.$1");
 };
 
-const Post = ({ data, removePost }: any) => {
+const Post = () => {
   const { PF, loading } = useSelector((state: any) => state);
+
+  const removePost = (item: any) => {
+    const newPost = PF.PFjson.filter((post: any) => {
+      return post !== item;
+    });
+    // setData(newPost);
+  };
 
   return (
     <>
@@ -59,7 +67,12 @@ const Post = ({ data, removePost }: any) => {
                 </div>
               </div>
               <div className="post__icon">
-                <div className="post__icon__block">
+                <Icon
+                  classname="trash"
+                  text="Удалить"
+                  onClick={() => removePost(item)}
+                />
+                {/* <div className="post__icon__block">
                   <i
                     onClick={() => {
                       removePost(item);
@@ -67,7 +80,7 @@ const Post = ({ data, removePost }: any) => {
                     className="post__delete icon-trash"
                   ></i>
                   <span>Удалить</span>
-                </div>
+                </div> */}
               </div>
             </div>
           );

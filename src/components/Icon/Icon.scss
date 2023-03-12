@@ -1,0 +1,82 @@
+.icon {
+  @apply flex justify-center flex-wrap cursor-pointer;
+}
+.icon > span {
+  @apply text-xs text-slate-500;
+}
+i {
+  font-family: "CV" !important;
+  //   speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-email:before {
+  content: "\e900";
+  @apply text-white text-lg;
+}
+.icon-github:before {
+  content: "\e901";
+  @apply text-white text-lg;
+}
+.icon-linkedin:before {
+  content: "\e902";
+  @apply text-white text-lg;
+}
+.icon-info:before {
+  content: "\e903";
+  @apply text-slate-600 text-sm;
+}
+.icon-location:before {
+  content: "\e904";
+  @apply text-slate-600 text-sm;
+}
+.icon-phone:before {
+  content: "\e905";
+  @apply text-white text-lg;
+}
+.icon-telegram:before {
+  content: "\e906";
+  @apply text-white text-lg;
+}
+.icon-home:before {
+  content: "\e907";
+  font-size: 20px;
+  color: white;
+}
+.icon-edit:before {
+  content: "\e908";
+  @apply text-slate-600 text-lg;
+}
+.icon-trash:before {
+  content: "\e9ac";
+  @apply text-slate-600 text-lg;
+}
+.icon-close:before {
+  content: "\ea0f";
+  @apply text-white text-lg;
+}
+.icon-circle-right:before {
+  content: "\ea42";
+  @apply text-white text-lg;
+}
+.icon-circle-down:before {
+  content: "\ea43";
+  @apply text-white text-lg;
+}
+
+.clear-btn {
+  @apply w-5 h-5 bg-slate-100 rounded-full absolute flex items-center justify-center top-[3.5px] right-1 cursor-pointer;
+}
+.clear-btn::before {
+  @apply text-slate-300 text-xs;
+}
+
+.clear-btn:hover::before {
+  @apply text-slate-500 transition-all;
+}

@@ -6,7 +6,7 @@ import CVList from "../CVList/CVList";
 import "./CV.module.scss";
 
 // const CV: React.FC = (): JSX.Element => {
-const CV = ({ title }: any) => {
+const CV: React.FC<any> = ({ title }): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
