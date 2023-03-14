@@ -4,7 +4,7 @@ import "./Icon.scss";
 interface IconProps {
   classname: string;
   text?: string | null;
-  onClick?: (e: any) => {} | void;
+  onClick?: (e: any) => void;
 }
 
 const Icon: React.FC<IconProps> = ({

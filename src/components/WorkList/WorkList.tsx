@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeWork } from "../../store/PFSlice";
 import "./WorkList.scss";
 import Icon from "../Icon/Icon";
 
@@ -11,13 +12,11 @@ const dataPost = (timestamp: number) => {
 
 const Post = () => {
   const { PF, loading } = useSelector((state: any) => state);
+  const dispatch = useDispatch();
 
-  const removePost = (item: any) => {
-    const newPost = PF.PFjson.filter((post: any) => {
-      return post !== item;
-    });
-    // setData(newPost);
-  };
+  // const removePost = () => {
+  //   dispatch(removeWork(item));
+  // };
 
   return (
     <>
@@ -70,17 +69,8 @@ const Post = () => {
                 <Icon
                   classname="trash"
                   text="Удалить"
-                  onClick={() => removePost(item)}
+                  onClick={() => dispatch(removeWork(item))}
                 />
-                {/* <div className="post__icon__block">
-                  <i
-                    onClick={() => {
-                      removePost(item);
-                    }}
-                    className="post__delete icon-trash"
-                  ></i>
-                  <span>Удалить</span>
-                </div> */}
               </div>
             </div>
           );

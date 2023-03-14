@@ -1,6 +1,8 @@
 import * as React from "react";
-import "./AddWork.scss";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addWork } from "../../store/PFSlice";
+import "./AddWork.scss";
 import Icon from "../Icon/Icon";
 
 const AddPost: React.FC = (): JSX.Element => {
@@ -17,8 +19,11 @@ const AddPost: React.FC = (): JSX.Element => {
     };
     return initialValues;
   };
+
+  
   const [obj, setObj] = useState(getObj);
 
+  const dispatch = useDispatch();
   const handleInputChange = (
     prop: string,
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -33,10 +38,10 @@ const AddPost: React.FC = (): JSX.Element => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // arr(obj);
     setObj(getObj());
     const resetForm = e.target as HTMLFormElement;
     resetForm.reset();
+    dispatch(addWork(obj));
   };
 
   return (
