@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Portfolio.scss";
 import WorkList from "../WorkList/WorkList";
 import Modal from "../Modal/Modal";
 import { fetchPF } from "../../store/PFSlice";
 import AdWork from "../AddWork/AddWork";
+import Loader from "../Loader/Loader";
 
 const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
   const dispatch = useDispatch();
@@ -18,28 +19,10 @@ const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
     dispatch(fetchPF());
   }, [dispatch]);
 
+  const { PF, loading } = useSelector((state: any) => state);
+
   const onClose = () => setModal(false);
   const [isModal, setModal] = useState(false);
-
-  // const handleClick = (value) => setData([value, ...data]);
-
-  // const openModal = () => SetShowModal(true);
-
-  // const hideModal = () => SetShowModal(false);
-
-  // const handleKeyPress = (e) => {
-  //   if (e.keyCode === 27) {
-  //     SetShowModal(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener("keydown", handleKeyPress, false);
-
-  //   return () => {
-  //     document.removeEventListener("keydown", handleKeyPress, false);
-  //   };
-  // }, []);
 
   return (
     <>
@@ -49,7 +32,13 @@ const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
         </button>
         <Modal visible={isModal} content={<AdWork />} onClose={onClose} />
         <div className="container">
-          <WorkList />
+          {loading ? (
+            <Loader />
+          ) : (
+            PF.PFjson.map((item: any, index: any) => (
+              <WorkList key={index} item={item} />
+            ))
+          )}
         </div>
       </div>
     </>

@@ -1,22 +1,33 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { stat } from "fs";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const jfile = "../PF.json";
 
-export const fetchPF: any = createAsyncThunk("PF/fetchPF", async function () {
-  const res = await fetch(jfile, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  }).then((data) => data.json());
-  return res;
-});
+export const fetchPF: any = createAsyncThunk(
+  "PF/fetchPF",
+  async function (_, { rejectWithValue }) {
+    try {
+      const res = await fetch(jfile, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+      if (!res.ok) {
+        throw new Error("Server Error!");
+      }
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
 
 interface IPFtype {
   PFjson: IObject[];
-  loading?: boolean | null;
+  loading: boolean | null;
+  error: boolean | null;
 }
 
 interface IObject {
@@ -33,6 +44,7 @@ const PFSlice = createSlice({
   initialState: {
     PFjson: [],
     loading: null,
+    error: null,
   } as IPFtype,
   reducers: {
     addWork(state, action) {
@@ -46,15 +58,14 @@ const PFSlice = createSlice({
   },
   extraReducers: {
     [fetchPF.pending]: (state) => {
-      state.loading = false;
+      state.loading = true;
     },
     [fetchPF.fulfilled]: (state, action) => {
       state.PFjson = action.payload;
-      state.loading = true;
-      console.log(state.PFjson);
+      state.error = false;
     },
     [fetchPF.rejected]: (state) => {
-      state.loading = false;
+      state.error = true;
     },
   },
 });
