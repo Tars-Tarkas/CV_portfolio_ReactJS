@@ -1,5 +1,6 @@
 .addwork {
-  @apply text-center block bg-slate-700 px-3 pt-10 rounded-md w-96 flex-row;
+  @apply text-center block bg-slate-700 px-3 pt-10 rounded-md flex-row;
+  width: 100%;
 }
 .addwork-form {
   @apply basis-1/9;

@@ -63,6 +63,7 @@ const PFSlice = createSlice({
     [fetchPF.fulfilled]: (state, action) => {
       state.PFjson = action.payload;
       state.error = false;
+      state.loading = false;
     },
     [fetchPF.rejected]: (state) => {
       state.error = true;

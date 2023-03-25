@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchCV } from "../../store/CVSlice";
 import CVList from "../CVList/CVList";
+import Loader from "../Loader/Loader";
 import "./CV.module.scss";
 
 // const CV: React.FC = (): JSX.Element => {
@@ -17,9 +18,11 @@ const CV: React.FC<any> = ({ title }): JSX.Element => {
     document.title = title;
   });
 
+  const { CVjson, loading } = useSelector((state: any) => state.CV);
   return (
     <>
-      <CVList />
+      {loading && <Loader />}
+      <CVList data={CVjson} />
     </>
   );
 };

@@ -1,16 +1,23 @@
 import * as React from "react";
-import { useSelector } from "react-redux";
 import "./CVList.scss";
 import Icon from "../Icon/Icon";
 
-const CVList: React.FC = (): JSX.Element => {
-  const { CV, loading } = useSelector((state: any) => state);
-
+const CVList = ({ data }: any) => {
+  const {
+    contacts,
+    hardskils,
+    languages,
+    hobby,
+    person,
+    position,
+    experience,
+    education,
+  } = data;
   return (
     <div className="container">
       <div className="cv_main">
         <div className="about__block">
-          {CV.CVjson.contacts?.map((item: any, index: any) => {
+          {contacts?.map((item: any, index: any) => {
             return (
               <div key={index} className="about__contacts__block">
                 <div className="about__photo">
@@ -56,7 +63,7 @@ const CVList: React.FC = (): JSX.Element => {
           <div className="about__hardskils__block">
             <div className="about__caption">Навыки</div>
             <div className="about__hardskils">
-              {CV.CVjson.hardskils?.map((item: any, index: any) => {
+              {hardskils?.map((item: any, index: any) => {
                 return <span key={index}>{item}</span>;
               })}
             </div>
@@ -65,7 +72,7 @@ const CVList: React.FC = (): JSX.Element => {
           <div className="about__languages__block">
             <div className="about__caption">Знание языков</div>
             <ul className="about__languages">
-              {CV.CVjson.languages?.map((item: any, index: any) => {
+              {languages?.map((item: any, index: any) => {
                 return <li key={index}>{item}</li>;
               })}
             </ul>
@@ -74,7 +81,7 @@ const CVList: React.FC = (): JSX.Element => {
           <div className="about__hobby__block">
             <div className="about__caption">Хобби</div>
             <ul className="about__hobby">
-              {CV.CVjson.hobby?.map((item: any, index: any) => {
+              {hobby?.map((item: any, index: any) => {
                 return <li key={index}>{item}</li>;
               })}
             </ul>
@@ -83,7 +90,7 @@ const CVList: React.FC = (): JSX.Element => {
 
         <div className="info__block">
           <div className="info__description">
-            {CV.CVjson.person?.map((item: any, index: any) => {
+            {person?.map((item: any, index: any) => {
               return (
                 <div key={index}>
                   <div className="info__fio">
@@ -105,7 +112,7 @@ const CVList: React.FC = (): JSX.Element => {
           </div>
 
           <div className="info__position">
-            {CV.CVjson.position?.map((item: any, index: any) => {
+            {position?.map((item: any, index: any) => {
               return (
                 <div key={index}>
                   <span>Желаемая должность:</span>
@@ -120,7 +127,7 @@ const CVList: React.FC = (): JSX.Element => {
 
           <div className="info__caption">ОПЫТ РАБОТЫ</div>
           <div className="info__experience">
-            {CV.CVjson.experience?.map((item: any, index: any) => {
+            {experience?.map((item: any, index: any) => {
               return (
                 <table key={index} className="info__experience__table">
                   <thead>
@@ -144,7 +151,7 @@ const CVList: React.FC = (): JSX.Element => {
 
           <div className="info__caption">ОБРАЗОВАНИЕ</div>
           <div className="info__education">
-            {CV.CVjson.education?.map((item: any, index: any) => {
+            {education?.map((item: any, index: any) => {
               return (
                 <table key={index}>
                   <thead>

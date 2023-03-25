@@ -56,7 +56,7 @@ const Post = ({ item }: any) => {
           </div>
           <div className="post__icon">
             <Icon
-              classname="trash"
+              classname="close"
               text="Удалить"
               onClick={() => dispatch(removeWork(item))}
             />

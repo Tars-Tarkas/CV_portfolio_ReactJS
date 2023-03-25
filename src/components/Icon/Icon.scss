@@ -57,6 +57,10 @@ i {
   content: "\e9ac";
   @apply text-slate-600 text-lg;
 }
+.icon-trash-xs:before {
+  content: "\e9ac";
+  @apply text-slate-600 text-xs;
+}
 .icon-close:before {
   content: "\ea0f";
   @apply text-white text-lg;

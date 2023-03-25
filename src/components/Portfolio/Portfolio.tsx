@@ -19,7 +19,7 @@ const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
     dispatch(fetchPF());
   }, [dispatch]);
 
-  const { PF, loading } = useSelector((state: any) => state);
+  const { PFjson, loading } = useSelector((state: any) => state.PF);
 
   const onClose = () => setModal(false);
   const [isModal, setModal] = useState(false);
@@ -32,13 +32,10 @@ const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
         </button>
         <Modal visible={isModal} content={<AdWork />} onClose={onClose} />
         <div className="container">
-          {loading ? (
-            <Loader />
-          ) : (
-            PF.PFjson.map((item: any, index: any) => (
-              <WorkList key={index} item={item} />
-            ))
-          )}
+          {loading && <Loader />}
+          {PFjson.map((item: any, index: any) => (
+            <WorkList key={index} item={item} />
+          ))}
         </div>
       </div>
     </>
