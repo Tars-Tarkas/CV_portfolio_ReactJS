@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({
       <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
         <div className="modal-content">{content}</div>
         <div className="modal-icon">
-          <Icon classname="close" text="Esc" onClick={onClose} />
+          <Icon classname="icon-close" text="Esc" onClick={onClose} />
         </div>
       </div>
     </div>

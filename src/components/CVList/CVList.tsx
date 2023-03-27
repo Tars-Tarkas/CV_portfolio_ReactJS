@@ -26,31 +26,31 @@ const CVList = ({ data }: any) => {
                 <div className="about__caption">Контакты</div>
                 <ul className="about__contacts">
                   <li className="about__contacts-text">
-                    <i className="icon-phone" />
+                    <Icon classname="icon-phone" />
                     <a href={item.tel} target="_blank" rel="noreferrer">
                       {item.tel.slice(4)}
                     </a>
                   </li>
                   <li className="about__contacts-text">
-                    <Icon classname="email" />
+                    <Icon classname="icon-email" />
                     <a href={item.mail} target="_blank" rel="noreferrer">
                       {item.mail.slice(7)}
                     </a>
                   </li>
                   <li className="about__contacts-text">
-                    <Icon classname="telegram" />
+                    <Icon classname="icon-telegram" />
                     <a href={item.telegram} target="_blank" rel="noreferrer">
                       Telegram
                     </a>
                   </li>
                   <li className="about__contacts-text">
-                    <Icon classname="github" />
+                    <Icon classname="icon-github" />
                     <a href={item.github} target="_blank" rel="noreferrer">
                       Github
                     </a>
                   </li>
                   <li className="about__contacts-text">
-                    <Icon classname="linkedin" />
+                    <Icon classname="icon-linkedin" />
                     <a href={item.linkedin} target="_blank" rel="noreferrer">
                       Linkedin
                     </a>
@@ -98,11 +98,11 @@ const CVList = ({ data }: any) => {
                   </div>
                   <div className="info__city-age">
                     <div>
-                      <Icon classname="location" />
+                      <Icon classname="icon-location" />
                       {item.city}
                     </div>
                     <div>
-                      <Icon classname="info" />
+                      <Icon classname="icon-info" />
                       Возраст: {item.age}
                     </div>
                   </div>

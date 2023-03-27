@@ -57,14 +57,9 @@ const AddPost: React.FC = (): JSX.Element => {
               onChange={(e) => handleInputChange("title", e)}
             />
             <Icon
-              classname="close clear-btn"
-              text={null}
+              classname="icon-close"
               onClick={(e) => clearInput("title", e)}
             />
-            {/* <i
-            onClick={(e) => clearInput("title", e)}
-            className="icon-close clear__btn"
-          ></i> */}
           </div>
           <div className="addwork-input-pagelink">
             <div className="modal__form__page">
@@ -96,17 +91,16 @@ const AddPost: React.FC = (): JSX.Element => {
           </div>
           <div className="modal__form__textarea">
             <textarea
-              // type="text"
               className="modal__textarea"
               value={obj.description || ""}
               required={true}
               placeholder="Добавить описание проекта"
               onChange={(e) => handleInputChange("description", e)}
             />
-            <i
+            <Icon
+              classname="clear-btn"
               onClick={(e) => clearInput("description", e)}
-              className="icon-close clear__btn"
-            ></i>
+            />
           </div>
           <button className="modal__btn">Добавить</button>
         </form>
