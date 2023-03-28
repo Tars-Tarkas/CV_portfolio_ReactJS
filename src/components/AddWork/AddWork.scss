@@ -1,64 +1,23 @@
 .addwork {
-  @apply text-center block bg-slate-700 px-3 pt-10 rounded-md flex-row;
-  width: 100%;
+  @apply bg-slate-700 px-3 pt-3 rounded-md flex justify-around;
 }
 .addwork-form {
-  @apply basis-1/9;
+  @apply text-center bg-slate-700 px-5 pt-3 rounded-md w-full;
 }
 .addwork-input {
-  @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 mr-2 placeholder:text-base;
+  @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 mr-2 placeholder:text-base mb-4;
 }
-
-// .modal {
-//   //
-//   &__content {
-//     // @apply flex flex-row;
-//   }
-//   &__close {
-//     @apply basis-9/1 cursor-pointer z-50;
-//     &__block {
-//       @apply flex justify-center flex-wrap pl-2;
-//       > span {
-//         @apply leading-8 text-sm text-white;
-//       }
-//       > i {
-//         @apply bg-opacity-80  bg-slate-600 w-8 h-8 rounded-md flex items-center justify-center hover:drop-shadow-md;
-//       }
-//     }
-//   }
-//   &__input {
-//     &__page__link {
-//       @apply sm:columns-2;
-//     }
-//     &__page {
-//       @apply mb-5 sm:mb-0;
-//     }
-//   }
-//   &__textarea {
-//     @apply w-full h-20 focus:outline-none rounded-md px-2 resize-none placeholder:text-base;
-//   }
-//   &__btn {
-//     @apply bg-white rounded-md text-sm font-medium px-8 py-1 mb-10;
-//   }
-//   &__form {
-//     @apply basis-1/9 text-center block bg-slate-700 px-3 pt-10 rounded-md;
-//     &__textarea {
-//       @apply relative;
-//     }
-//     &__linkrep {
-//       @apply relative;
-//     }
-//     &__page {
-//       @apply relative;
-//     }
-//     &__title {
-//       @apply relative;
-//     }
-//   }
-//   &__form > * {
-//     @apply mb-4;
-//   }
-//   &__input__title {
-//     @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 placeholder:text-center text-center placeholder:text-base;
-//   }
-// }
+.addwork-textarea {
+  @apply w-full h-20 focus:outline-none rounded-md px-2 resize-none placeholder:text-base mb-4;
+}
+.addwork-input-linkrep {
+}
+.addwork-btn {
+  @apply bg-white rounded-md text-sm font-medium px-8 py-1 mb-5;
+}
+.addwork-input-block {
+  position: relative;
+}
+.addwork-input-pagelink {
+  @apply grid grid-cols-2 gap-4;
+}

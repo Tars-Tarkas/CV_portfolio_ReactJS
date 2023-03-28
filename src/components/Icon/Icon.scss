@@ -75,12 +75,15 @@ i {
 }
 
 .clear-btn {
-  @apply w-5 h-5 bg-slate-100 rounded-full absolute flex items-center justify-center top-[3.5px] right-1 cursor-pointer;
+  content: "\ea0f";
+  @apply w-5 h-5 bg-slate-100 rounded-full absolute flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600;
 }
 .clear-btn::before {
+  content: "\ea0f";
   @apply text-slate-300 text-xs;
 }
 
 .clear-btn:hover::before {
+  content: "\ea0f";
   @apply text-slate-500 transition-all;
 }

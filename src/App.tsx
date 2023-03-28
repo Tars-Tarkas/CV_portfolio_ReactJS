@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import CV from "./components/CV/CV";
-
 import Portfolio from "./components/Portfolio/Portfolio";
 
 const App: React.FC = (): JSX.Element => {
@@ -22,6 +21,7 @@ const App: React.FC = (): JSX.Element => {
           element={<Portfolio title="Портфолио" />}
         />
       </Routes>
+
       <Footer />
     </>
   );

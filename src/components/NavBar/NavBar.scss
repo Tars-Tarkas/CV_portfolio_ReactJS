@@ -1,6 +1,9 @@
-.navbar{
-    @apply flex;   
-    &__link a{
-        @apply text-white mr-4 
-    }
+.navbar {
+  @apply flex;
+  &__link a {
+    @apply text-white mr-4;
+  }
+}
+.acvtive {
+  color: red;
 }

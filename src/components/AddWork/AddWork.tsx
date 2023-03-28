@@ -5,7 +5,7 @@ import { addWork } from "../../store/PFSlice";
 import "./AddWork.scss";
 import Icon from "../Icon/Icon";
 
-const AddPost: React.FC = (): JSX.Element => {
+const AddWork: React.FC = ({ title }: any): JSX.Element => {
   let uId = () => new Date().getTime();
 
   const getObj = () => {
@@ -45,69 +45,69 @@ const AddPost: React.FC = (): JSX.Element => {
 
   return (
     <div className="container">
-      <div className="addwork">
-        <form onSubmit={handleSubmit} className="addwork-form">
-          <div className="modal__form__title">
+      <form onSubmit={handleSubmit} className="addwork-form">
+        <div className="addwork-header">
+          <h2>Заголовок</h2>
+        </div>
+        <div className="addwork-input-block">
+          <input
+            type="text"
+            className="addwork-input addwork-input-title"
+            value={obj.title || ""}
+            required={true}
+            placeholder="Добавить заголовок"
+            onChange={(e) => handleInputChange("title", e)}
+          />
+          <Icon classname="clear-btn" onClick={(e) => clearInput("title", e)} />
+        </div>
+
+        <div className="addwork-input-pagelink">
+          <div className="addwork-input-block">
             <input
               type="text"
-              className="addwork-input addwork-input-title"
-              value={obj.title || ""}
-              required={true}
-              placeholder="Добавить заголовок"
-              onChange={(e) => handleInputChange("title", e)}
-            />
-            <Icon
-              classname="icon-close"
-              onClick={(e) => clearInput("title", e)}
-            />
-          </div>
-          <div className="addwork-input-pagelink">
-            <div className="modal__form__page">
-              <input
-                type="text"
-                className="addwork-input addwork-input-page"
-                value={obj.page || ""}
-                placeholder="Ссылка на страницу"
-                onChange={(e) => handleInputChange("page", e)}
-              />
-              <i
-                onClick={(e) => clearInput("page", e)}
-                className="icon-close clear__btn"
-              ></i>
-            </div>
-            <div className="modal__form__linkrep">
-              <input
-                type="text"
-                className="modal__input"
-                value={obj.linkrep || ""}
-                placeholder="Ссылка на репозитарий"
-                onChange={(e) => handleInputChange("linkrep", e)}
-              />
-              <i
-                onClick={(e) => clearInput("linkrep", e)}
-                className="icon-close clear__btn"
-              ></i>
-            </div>
-          </div>
-          <div className="modal__form__textarea">
-            <textarea
-              className="modal__textarea"
-              value={obj.description || ""}
-              required={true}
-              placeholder="Добавить описание проекта"
-              onChange={(e) => handleInputChange("description", e)}
+              className="addwork-input addwork-input-page"
+              value={obj.page || ""}
+              placeholder="Ссылка на страницу"
+              onChange={(e) => handleInputChange("page", e)}
             />
             <Icon
               classname="clear-btn"
-              onClick={(e) => clearInput("description", e)}
+              onClick={(e) => clearInput("page", e)}
             />
           </div>
-          <button className="modal__btn">Добавить</button>
-        </form>
-        <div className="modal__close"></div>
-      </div>
+          <div className="addwork-input-block">
+            <input
+              type="text"
+              className="addwork-input"
+              value={obj.linkrep || ""}
+              placeholder="Ссылка на репозитарий"
+              onChange={(e) => handleInputChange("linkrep", e)}
+            />
+
+            <Icon
+              classname="clear-btn"
+              onClick={(e) => clearInput("linkrep", e)}
+            />
+          </div>
+        </div>
+        <div className="addwork-input-block">
+          <textarea
+            className="addwork-textarea"
+            value={obj.description || ""}
+            required={true}
+            placeholder="Добавить описание проекта"
+            onChange={(e) => handleInputChange("description", e)}
+          />
+          <Icon
+            classname="clear-btn"
+            onClick={(e) => clearInput("description", e)}
+          />
+        </div>
+
+        <button className="addwork-btn">Добавить</button>
+      </form>
     </div>
   );
 };
 
-export default AddPost;
+export default AddWork;

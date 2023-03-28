@@ -31,11 +31,15 @@ const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
           Добавить работу
         </button>
         <Modal visible={isModal} content={<AdWork />} onClose={onClose} />
+
         <div className="container">
-          {loading && <Loader />}
-          {PFjson.map((item: any, index: any) => (
-            <WorkList key={index} item={item} />
-          ))}
+          {loading ? (
+            <Loader />
+          ) : (
+            PFjson.map((item: any, index: any) => (
+              <WorkList key={index} item={item} />
+            ))
+          )}
         </div>
       </div>
     </>
