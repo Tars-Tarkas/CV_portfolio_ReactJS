@@ -2,10 +2,10 @@
   @apply bg-opacity-80 fixed top-0 left-0 h-screen w-screen bg-slate-500 backdrop-opacity-90 flex items-center justify-center z-50;
 }
 .modal-dialog {
-  @apply flex flex-row w-full;
+  @apply flex flex-row;
 }
 .modal-content {
-  @apply basis-1/9 justify-center flex;
+  @apply basis-1/9 flex;
 }
 .modal-icon {
   @apply basis-9/1;

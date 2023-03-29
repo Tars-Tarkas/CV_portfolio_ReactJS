@@ -28,10 +28,12 @@ const Modal: React.FC<ModalProps> = ({
   if (!visible) return null;
   return (
     <div className="modal" onClick={onClose}>
-      <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-content">{content}</div>
-        <div className="modal-icon">
-          <Icon classname="icon-close" text="Esc" onClick={onClose} />
+      <div className="container">
+        <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-content">{content}</div>
+          <div className="modal-icon">
+            <Icon classname="icon-close" text="Esc" onClick={onClose} />
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,5 @@
-.addwork {
-  @apply bg-slate-700 px-3 pt-3 rounded-md flex justify-around;
-}
 .addwork-form {
-  @apply text-center bg-slate-700 px-5 pt-3 rounded-md w-full;
+  @apply bg-slate-700 px-5 pt-3 rounded-md w-full;
 }
 .addwork-input {
   @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 mr-2 placeholder:text-base mb-4;
@@ -13,11 +10,14 @@
 .addwork-input-linkrep {
 }
 .addwork-btn {
-  @apply bg-white rounded-md text-sm font-medium px-8 py-1 mb-5;
+  @apply bg-white rounded-md text-sm font-medium px-8 py-1 mb-5 text-right;
 }
 .addwork-input-block {
   position: relative;
 }
 .addwork-input-pagelink {
   @apply grid grid-cols-2 gap-4;
+}
+.addwork-header-title {
+  @apply text-white mb-4 text-left;
 }

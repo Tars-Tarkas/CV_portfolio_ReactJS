@@ -30,7 +30,11 @@ const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
         <button className="portfolio__addbtn" onClick={() => setModal(true)}>
           Добавить работу
         </button>
-        <Modal visible={isModal} content={<AdWork />} onClose={onClose} />
+        <Modal
+          visible={isModal}
+          content={<AdWork title="Добавить работу" />}
+          onClose={onClose}
+        />
 
         <div className="container">
           {loading ? (
