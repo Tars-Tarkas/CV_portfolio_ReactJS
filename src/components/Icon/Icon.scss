@@ -1,12 +1,6 @@
-.icon {
-  @apply flex justify-center flex-wrap cursor-pointer;
-}
-.icon > span {
-  @apply text-xs text-slate-500;
-}
 i {
   font-family: "CV" !important;
-  //   speak: never;
+  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -15,7 +9,12 @@ i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon {
+  @apply flex justify-center flex-wrap cursor-pointer;
+}
+.icon-text {
+  @apply text-xs text-slate-900 p-1;
+}
 .icon-email:before {
   content: "\e900";
   @apply text-white text-lg;
@@ -23,6 +22,13 @@ i {
 .icon-github:before {
   content: "\e901";
   @apply text-white text-lg;
+}
+.icon-github-dark:before {
+  content: "\e901";
+  @apply text-slate-700 text-lg;
+}
+.icon-github-dark:hover:before {
+  @apply text-slate-500 transition-all;
 }
 .icon-linkedin:before {
   content: "\e902";
@@ -55,7 +61,10 @@ i {
 }
 .icon-trash:before {
   content: "\e9ac";
-  @apply text-slate-600 text-lg;
+  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
+}
+.icon-trash:hover:before {
+  @apply bg-slate-500 transition-all text-white;
 }
 .icon-trash-xs:before {
   content: "\e9ac";
@@ -63,7 +72,10 @@ i {
 }
 .icon-close:before {
   content: "\ea0f";
-  @apply text-white text-lg;
+  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
+}
+.icon-close:hover:before {
+  @apply bg-slate-500 transition-all text-white;
 }
 .icon-circle-right:before {
   content: "\ea42";
@@ -73,17 +85,34 @@ i {
   content: "\ea43";
   @apply text-white text-lg;
 }
-
+.icon-webpage:before {
+  content: "\e9ca";
+  @apply text-white text-lg;
+}
+.icon-webpage-dark:before {
+  content: "\e9ca";
+  @apply text-slate-700 text-lg;
+}
+.icon-webpage-dark:hover:before {
+  @apply text-slate-500 transition-all;
+}
 .clear-btn {
   content: "\ea0f";
-  @apply w-5 h-5 bg-slate-100 rounded-full absolute flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600;
+  @apply w-6 h-6 bg-slate-100 rounded-md absolute flex items-center justify-center top-[1.5px] right-1 cursor-pointer text-slate-600;
 }
 .clear-btn::before {
   content: "\ea0f";
   @apply text-slate-300 text-xs;
 }
-
 .clear-btn:hover::before {
   content: "\ea0f";
   @apply text-slate-500 transition-all;
+}
+.icon-link-none {
+  i:before {
+    @apply pr-3 text-sm text-slate-700 pointer-events-none;
+  }
+}
+.icon-link {
+  @apply pr-3 text-sm text-slate-400 cursor-pointer;
 }

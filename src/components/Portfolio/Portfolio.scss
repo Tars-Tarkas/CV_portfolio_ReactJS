@@ -1,6 +1,9 @@
-.portfolio{
-    @apply text-center;
-    &__addbtn{
-        @apply bg-slate-700 text-white px-4 py-1 rounded-md text-sm focus:outline-none
-    }
+.portfolio {
+  @apply text-center;
+}
+.portfolio-btn {
+  @apply bg-slate-700 text-white px-4 py-1 rounded-md text-sm focus:outline-none;
+}
+.portfolio-btn:hover {
+  @apply bg-slate-500 transition-all;
 }

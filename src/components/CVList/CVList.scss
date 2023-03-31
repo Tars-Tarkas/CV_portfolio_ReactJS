@@ -1,125 +1,125 @@
-.cv_main{
-    @apply flex gap-6 flex-wrap space-x-0 mb-5
+.cv_main {
+  @apply flex gap-6 flex-wrap space-x-0 mb-5;
 }
-.about{
-    &__photo{
-        @apply flex justify-center; 
-        img{
-            @apply w-64 h-64 rounded-full mb-5; 
-        }
-    }
-    &__block{
-        @apply sm:w-80 bg-slate-800 p-5 
-    }
-    &__contacts{         
-        &__block{ 
-            ul{
-                @apply flex justify-center flex-wrap md:block;
-                li{
-                    @apply pr-5 
-                }
-            }          
-        }
-        li{
-            @apply block mb-2 md:flex;
-        } 
-        @apply mb-5;      
-        a{
-            @apply pl-2 text-lg
-        }
-    }
-    &__contacts-text{
-        @apply text-white;
-    }
-    &__hardskils{
-        @apply flex flex-wrap justify-center mb-5;
-        span{
-            @apply bg-slate-100 pl-3 pr-3 m-1 rounded-full text-base text-slate-700 font-semibold
-        }
-    }
-    &__languages{
-        @apply mb-5;
-        li{
-            @apply text-slate-50 text-base
-        }
-    }
-    &__hobby{
-        @apply text-slate-50 text-base
-    }
-    
+.about-block {
+  @apply sm:w-80 bg-slate-800 p-5;
 }
-
-.info{
-    &__block{
-        @apply flex-1 mb-32;
-    }
-    &__description{
-        @apply mt-20
-    }
-    &__fio{
-        @apply font-bold text-4xl text-center mb-5 dark:text-white
-    }
-    &__city-age{
-        @apply flex place-content-between mb-5 text-sm dark:text-white
-    }
-    &__position{
-        @apply text-center mb-5 dark:text-white; 
-        span{
-            @apply block text-slate-700 dark:text-white 
-        }       
-    }
-    &__post{
-        @apply text-lg font-semibold mb-3 dark:text-white
-    }
-    &__employment{
-        @apply text-sm dark:text-white dark:text-white
-    }
-    &__schedule{
-        @apply text-sm mb-5 dark:text-white dark:text-white
-    }
-    &__about{
-        @apply text-base text-left leading-5 dark:text-white
-    }
-    &__experience{
-        @apply mb-5;
-        &__table{
-            @apply border-collapse dark:text-white
-        }
-        &__year{
-            @apply w-24 align-top text-base text-slate-700 font-medium dark:text-white
-        }
-        &__organization{
-            @apply font-semibold text-slate-700 dark:text-white
-        }
-        &__position{
-            @apply font-normal text-sm mb-3 dark:text-white
-        }
-        &__description{
-            @apply text-base font-normal mb-5 leading-5 dark:text-white
-        }
-        
-    }
-    &__education{
-        @apply mb-5;
-        &__year{
-            @apply w-24 align-top text-base font-medium dark:text-white
-        }
-        &__institution{
-            @apply font-semibold text-slate-700 dark:text-white
-        }
-        &__department{
-            @apply font-normal text-sm mb-3 dark:text-white
-        }
-        &__specialization{
-            @apply text-base font-normal mb-5 dark:text-white 
-        }
-    }
+.about-contacts-block {
+  li {
+    @apply block mb-2 md:flex;
+  }
+  @apply mb-5;
+  a {
+    @apply pl-2 text-lg;
+  }
 }
-
-.about__caption{
-    @apply bg-slate-50 w-full h-10 text-center pt-2 font-bold font-sans uppercase mb-5 text-slate-700
+.about-photo {
+  @apply flex justify-center;
+  img {
+    @apply w-64 h-64 rounded-full mb-5;
+  }
 }
-.info__caption{
-    @apply bg-slate-700 w-full h-10 text-center pt-2 text-white font-bold font-sans uppercase mb-5
+.about-caption {
+  @apply bg-slate-50 w-full h-10 text-center pt-2 font-bold font-sans uppercase mb-5 text-slate-700;
 }
-
+.about-contacts-text {
+  @apply text-white;
+}
+.about-hardskils-block {
+}
+.about-hardskils {
+  @apply flex flex-wrap justify-center mb-5;
+  span {
+    @apply bg-slate-100 pl-3 pr-3 m-1 rounded-full text-base text-slate-700 font-semibold;
+  }
+}
+.about-languages {
+  @apply mb-5;
+  li {
+    @apply text-slate-50 text-base;
+  }
+}
+.about-hobby {
+  @apply text-slate-50 text-base;
+}
+.info-block {
+  @apply flex-1 mb-32;
+}
+.info-description {
+  @apply mt-20;
+}
+.info-fio {
+  @apply font-bold text-4xl text-center mb-5 dark:text-white;
+}
+.info-position {
+  @apply text-center mb-5 dark:text-white;
+  span {
+    @apply block text-slate-700 dark:text-white;
+  }
+}
+.info-location-age {
+  @apply flex justify-between;
+}
+.info-location {
+  @apply flex items-center  dark:text-white;
+  i {
+    @apply pr-2;
+  }
+}
+.info-age {
+  @apply flex items-center  dark:text-white;
+  i {
+    @apply pr-2;
+  }
+}
+.info-postion-post {
+  @apply text-lg font-semibold mb-3 dark:text-white;
+}
+.info-position-employment {
+  @apply text-sm dark:text-white dark:text-white;
+}
+.info-postion-schedule {
+  @apply text-sm mb-5 dark:text-white dark:text-white;
+}
+.info-about {
+  @apply text-base text-left leading-5 dark:text-white;
+}
+.info-experience {
+  @apply mb-5;
+}
+.info-caption {
+  @apply bg-slate-700 w-full h-10 text-center pt-2 text-white font-bold font-sans uppercase mb-5;
+}
+.info-experience-table {
+  @apply grid grid-cols-[8rem_minmax(8rem,_1fr)] dark:text-white;
+}
+.info-experience-year {
+  @apply w-24 align-top text-base text-slate-700 font-medium dark:text-white;
+}
+.info-experience-organization {
+  @apply font-semibold text-slate-700 dark:text-white;
+}
+.info-experience-position {
+  @apply font-normal text-sm mb-3 dark:text-white;
+}
+.info-experience-description {
+  @apply text-base font-normal mb-5 leading-5 dark:text-white;
+}
+.info-education {
+  @apply mb-5;
+}
+.info-education-table {
+  @apply grid grid-cols-[8rem_minmax(8rem,_1fr)];
+}
+.info-education-year {
+  @apply w-24 align-top text-base font-medium dark:text-white;
+}
+.info-education-institution {
+  @apply font-semibold text-slate-700 dark:text-white;
+}
+.info-education-department {
+  @apply font-normal text-sm mb-3 dark:text-white;
+}
+.info-education-specialization {
+  @apply text-base font-normal mb-5 dark:text-white;
+}

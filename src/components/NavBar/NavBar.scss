@@ -1,9 +1,11 @@
 .navbar {
   @apply flex;
-  &__link a {
-    @apply text-white mr-4;
-  }
 }
-.acvtive {
-  color: red;
+
+.navbar__link {
+  @apply text-white pr-6;
+}
+
+.navbar-active {
+  @apply text-slate-300 text-base pr-6;
 }

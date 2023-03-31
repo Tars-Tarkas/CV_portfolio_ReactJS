@@ -92,8 +92,9 @@ const AddWork: React.FC<React.HTMLProps<Element>> = ({
         <textarea
           className="addwork-textarea"
           value={obj.description || ""}
+          maxLength={150}
           required={true}
-          placeholder="Добавить описание проекта"
+          placeholder="Добавить описание проекта (максимально 150 символов)"
           onChange={(e) => handleInputChange("description", e)}
         />
         <Icon

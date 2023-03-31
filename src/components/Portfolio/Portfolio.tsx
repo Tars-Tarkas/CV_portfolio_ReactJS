@@ -27,7 +27,7 @@ const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
   return (
     <>
       <div className="portfolio">
-        <button className="portfolio__addbtn" onClick={() => setModal(true)}>
+        <button className="portfolio-btn" onClick={() => setModal(true)}>
           Добавить работу
         </button>
         <Modal

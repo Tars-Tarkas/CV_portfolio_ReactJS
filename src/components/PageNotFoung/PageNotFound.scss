@@ -1,0 +1,12 @@
+.pagenotfound {
+  @apply flex items-center justify-center text-center flex-col;
+}
+.pagenotfound-code {
+  @apply text-slate-800 text-9xl font-bold;
+}
+.pagenotfound-text {
+  @apply text-slate-800 text-3xl font-medium mb-14 uppercase;
+}
+.pagenotfound-subtext {
+  @apply text-slate-600 text-2xl font-medium mb-14 uppercase;
+}

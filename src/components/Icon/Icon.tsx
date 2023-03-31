@@ -5,6 +5,7 @@ interface IconProps {
   classname: stylename;
   text?: string | null;
   onClick?: (e: any) => void;
+  link?: string;
 }
 
 type stylename =
@@ -12,6 +13,7 @@ type stylename =
   | "icon-trash"
   | "icon-email"
   | "icon-github"
+  | "icon-github-dark"
   | "icon-linkedin"
   | "icon-info"
   | "icon-location"
@@ -19,6 +21,8 @@ type stylename =
   | "icon-telegram"
   | "icon-home"
   | "icon-edit"
+  | "icon-webpage"
+  | "icon-webpage-dark"
   | "icon-circle-right"
   | "icon-circle-down"
   | "clear-btn";
@@ -27,11 +31,20 @@ const Icon: React.FC<IconProps> = ({
   classname,
   text,
   onClick,
+  link,
 }): JSX.Element => {
   return (
     <div className="icon">
-      <i className={classname} onClick={onClick}></i>
-      {text ? <span>{text}</span> : null}
+      {link ? (
+        <a href={link} target="_blank" rel="noreferrer">
+          <i className={classname} onClick={onClick} />
+        </a>
+      ) : (
+        <>
+          <i className={classname} onClick={onClick} />
+          {text ? <span className="icon-text">{text}</span> : null}
+        </>
+      )}
     </div>
   );
 };
