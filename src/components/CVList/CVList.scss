@@ -4,15 +4,7 @@
 .about-block {
   @apply sm:w-80 bg-slate-800 p-5;
 }
-.about-contacts-block {
-  li {
-    @apply block mb-2 md:flex;
-  }
-  @apply mb-5;
-  a {
-    @apply pl-2 text-lg;
-  }
-}
+
 .about-photo {
   @apply flex justify-center;
   img {
@@ -22,8 +14,17 @@
 .about-caption {
   @apply bg-slate-50 w-full h-10 text-center pt-2 font-bold font-sans uppercase mb-5 text-slate-700;
 }
+.about-contacts {
+  li {
+    @apply mb-2;
+  }
+  @apply mb-5;
+  a {
+    @apply pl-2 text-lg;
+  }
+}
 .about-contacts-text {
-  @apply text-white;
+  @apply text-white flex flex-wrap;
 }
 .about-hardskils-block {
 }
@@ -58,7 +59,7 @@
   }
 }
 .info-location-age {
-  @apply flex justify-between;
+  @apply md:flex justify-between mb-10;
 }
 .info-location {
   @apply flex items-center  dark:text-white;

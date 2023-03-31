@@ -5,11 +5,12 @@ import "./NavBar.scss";
 function NavBar() {
   return (
     <ul className="navbar">
-      <li className="">
+      <li className="navbar__link">
         <NavLink
           className={(navData) =>
             navData.isActive ? "navbar-active" : "navbar__link"
           }
+          end
           to="/"
         >
           Резюме
@@ -24,6 +25,8 @@ function NavBar() {
         >
           Портфолио
         </NavLink>
+      </li>
+      <li className="navbar__link">
         <NavLink
           className={(navData) =>
             navData.isActive ? "navbar-active" : "navbar__link"

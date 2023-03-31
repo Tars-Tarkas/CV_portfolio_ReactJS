@@ -11,7 +11,7 @@ const dataPost = (timestamp: number) => {
     .replace(/^(\d+)-(\d+)-(\d+)$/, "$3.$2.$1");
 };
 
-const WorkList = ({ item }: any) => {
+const WorkList: React.FC<any> = ({ item }): JSX.Element => {
   const dispatch = useDispatch();
   return (
     <div className="post">

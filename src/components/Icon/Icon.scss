@@ -10,10 +10,10 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 .icon {
-  @apply flex justify-center flex-wrap cursor-pointer;
+  @apply flex justify-center flex-wrap cursor-pointer w-fit;
 }
 .icon-text {
-  @apply text-xs text-slate-900 p-1;
+  @apply text-xs text-slate-900 p-1 w-auto;
 }
 .icon-email:before {
   content: "\e900";

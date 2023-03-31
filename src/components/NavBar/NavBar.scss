@@ -3,9 +3,19 @@
 }
 
 .navbar__link {
-  @apply text-white pr-6;
+  @apply text-white pr-3;
+}
+.navbar__link {
+  > a:hover {
+    @apply text-slate-300 transition-all;
+  }
 }
 
 .navbar-active {
-  @apply text-slate-300 text-base pr-6;
+  @apply text-slate-500 text-base pr-3;
+}
+.navbar-active {
+  > a:hover {
+    @apply text-slate-300 transition-all;
+  }
 }

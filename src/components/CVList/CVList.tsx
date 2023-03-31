@@ -24,12 +24,14 @@ const CVList = ({ data }: any) => {
                   <img alt="" src={item.photo} />
                 </div>
                 <div className="about-caption">Контакты</div>
-                <ul className="about__contacts">
+                <ul className="about-contacts">
                   <li className="about-contacts-text">
                     <Icon classname="icon-phone" />
-                    <a href={item.tel} target="_blank" rel="noreferrer">
-                      {item.tel.slice(4)}
-                    </a>
+                    <div>
+                      <a href={item.tel} target="_blank" rel="noreferrer">
+                        {item.tel.slice(4)}
+                      </a>
+                    </div>
                   </li>
                   <li className="about-contacts-text">
                     <Icon classname="icon-email" />

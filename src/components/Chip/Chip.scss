@@ -1,0 +1,6 @@
+.chip-input {
+  @apply border-x-2;
+}
+.chip-field-item {
+  @apply relative bg-slate-100 px-3 py-1 rounded-md text-slate-800;
+}
