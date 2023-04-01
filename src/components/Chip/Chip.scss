@@ -1,6 +1,16 @@
 .chip-input {
-  @apply border-x-2;
+  @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 mr-2 placeholder:text-sm mb-4;
+}
+.chip-field {
+  @apply flex flex-wrap bg-slate-600 rounded-md;
+  li {
+    @apply text-slate-800;
+  }
 }
 .chip-field-item {
-  @apply relative bg-slate-100 px-3 py-1 rounded-md text-slate-800;
+  @apply relative bg-slate-50 pl-2 py-[0.1rem] rounded-md pr-10 ml-3 mt-3 mb-3;
+}
+
+.chip-title {
+  @apply text-white text-left text-sm mb-1;
 }

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addWork } from "../../store/PFSlice";
 import "./AddWork.scss";
 import Icon from "../Icon/Icon";
+import Chip from "../Chip/Chip";
 
 const AddWork: React.FC<React.HTMLProps<Element>> = ({
   title,
@@ -18,6 +19,7 @@ const AddWork: React.FC<React.HTMLProps<Element>> = ({
       linkrep: "",
       description: "",
       date: "",
+      chipvalue: [],
     };
     return initialValues;
   };
@@ -25,6 +27,7 @@ const AddWork: React.FC<React.HTMLProps<Element>> = ({
   const [obj, setObj] = useState(getObj);
 
   const dispatch = useDispatch();
+
   const handleInputChange = (
     prop: string,
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -102,7 +105,7 @@ const AddWork: React.FC<React.HTMLProps<Element>> = ({
           onClick={(e) => clearInput("description", e)}
         />
       </div>
-
+      <Chip title="Стек технологий:" arrValues={() => handleSubmit} />
       <button className="addwork-btn">Добавить</button>
     </form>
   );

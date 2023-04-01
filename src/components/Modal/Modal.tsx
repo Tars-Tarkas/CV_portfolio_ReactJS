@@ -5,7 +5,7 @@ import Icon from "../Icon/Icon";
 
 interface ModalProps {
   visible: boolean;
-  content: JSX.Element | string;
+  content: JSX.Element | JSX.Element[];
   onClose: () => void;
 }
 const Modal: React.FC<ModalProps> = ({

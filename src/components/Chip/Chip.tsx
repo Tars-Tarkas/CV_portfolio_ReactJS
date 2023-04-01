@@ -3,50 +3,73 @@ import { useState } from "react";
 import Icon from "../Icon/Icon";
 import "./Chip.scss";
 
-const Chip: React.FC = (): JSX.Element => {
-  const [value, setValue] = useState("");
-  const [valueChip, setValueChip] = useState<string[]>([]);
+interface IchipProps {
+  title?: string;
+  arrValues?: (arr: string[]) => void;
+}
 
-  const onEnter = (
-    e: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>
-  ) => {
-    if (e.key === "Enter") {
-      setValueChip([...valueChip, value]);
-      setValue("");
+const Chip: React.FC<IchipProps> = ({ title, arrValues }): JSX.Element => {
+  const [value, setValue] = useState<string>("");
+  const [valueChip, setValueChip] = useState<string[]>(["ddd"]);
 
-      //   setValueChip((prevstate) => {
-      //     return [...prevstate, value];
-      //   });
+  const addItemArray = (item: string) => {
+    if (item.trim().length !== 0) {
+      const newValue = [item, ...valueChip.filter((value) => value !== item)];
+      setValueChip(newValue);
     }
   };
-  console.log(valueChip);
+
+  const onEnter = (
+    e: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>,
+    item: string
+  ) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addItemArray(item);
+      setValue("");
+      arrValues?.(valueChip);
+    }
+  };
+
+  const removeItem = (item: any) => {
+    const newValue = valueChip.filter((value) => {
+      return value !== item;
+    });
+    setValueChip(newValue);
+  };
+
   const onChange = (
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
-    setValue(e.target.value);
+    if (e.target.value) {
+      setValue(e.target.value);
+    }
   };
 
-  const onClick = () => {};
   return (
     <div className="chip-block">
+      <h2 className="chip-title">{title}</h2>
       <input
         value={value}
         className="chip-input"
         type="text"
-        onKeyDown={onEnter}
+        onKeyDown={(e) => onEnter(e, value)}
         onChange={onChange}
       />
-      <div className="chip-field">
-        <ul>
-          {valueChip.map((item, index): any => {
-            return (
-              <li className="chip-field-item" key={index} onClick={onClick}>
-                {item} <Icon classname="clear-btn" />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <ul className="chip-field">
+        {valueChip.map((item): any => {
+          return (
+            <li
+              className="chip-field-item"
+              key={item}
+              onClick={() => removeItem(item)}
+            >
+              {item}
+              <Icon classname="clear-btn" />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
