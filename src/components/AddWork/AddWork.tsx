@@ -18,8 +18,7 @@ const AddWork: React.FC<React.HTMLProps<Element>> = ({
       page: "",
       linkrep: "",
       description: "",
-      date: "",
-      chipvalue: [],
+      stack: [],
     };
     return initialValues;
   };
@@ -40,13 +39,27 @@ const AddWork: React.FC<React.HTMLProps<Element>> = ({
     setObj({ ...obj, [prop]: "" });
   };
 
+  const updateData = (value: any) => {
+    setObj({ ...obj, stack: value });
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setObj(getObj());
     const resetForm = e.target as HTMLFormElement;
     resetForm.reset();
-    dispatch(addWork(obj));
+    dispatch(
+      addWork({
+        id: obj.id,
+        title: obj.title,
+        page: obj.page,
+        linkrep: obj.linkrep,
+        description: obj.description,
+        stack: obj.stack,
+      })
+    );
   };
+  console.log(obj);
 
   return (
     <form onSubmit={handleSubmit} className="addwork-form">
@@ -105,7 +118,7 @@ const AddWork: React.FC<React.HTMLProps<Element>> = ({
           onClick={(e) => clearInput("description", e)}
         />
       </div>
-      <Chip title="Стек технологий:" arrValues={() => handleSubmit} />
+      <Chip title="" arrValues={updateData} />
       <button className="addwork-btn">Добавить</button>
     </form>
   );

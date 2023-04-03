@@ -31,12 +31,12 @@ interface IPFtype {
 }
 
 interface IObject {
-  id: number;
+  id: Date;
   title: string;
   page: string;
   linkrep: string;
   description: string;
-  date: string;
+  stack?: string[];
 }
 
 const PFSlice = createSlice({
@@ -48,7 +48,15 @@ const PFSlice = createSlice({
   } as IPFtype,
   reducers: {
     addWork(state, action) {
-      state.PFjson = [...state.PFjson, action.payload];
+      // state.PFjson = [...state.PFjson, action.payload];
+      state.PFjson.push({
+        id: action.payload.id,
+        title: action.payload.title,
+        page: action.payload.page,
+        linkrep: action.payload.linkrep,
+        description: action.payload.description,
+        stack: action.payload.stack,
+      });
     },
     removeWork(state, action) {
       state.PFjson = state.PFjson.filter(

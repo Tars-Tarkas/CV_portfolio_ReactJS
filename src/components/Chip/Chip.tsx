@@ -5,7 +5,7 @@ import "./Chip.scss";
 
 interface IchipProps {
   title?: string;
-  arrValues?: (arr: string[]) => void;
+  arrValues?: (stack: string[]) => void;
 }
 
 const Chip: React.FC<IchipProps> = ({ title, arrValues }): JSX.Element => {
@@ -26,8 +26,8 @@ const Chip: React.FC<IchipProps> = ({ title, arrValues }): JSX.Element => {
     if (e.key === "Enter") {
       e.preventDefault();
       addItemArray(item);
-      setValue("");
       arrValues?.(valueChip);
+      setValue("");
     }
   };
 

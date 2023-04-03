@@ -5,10 +5,12 @@ import "./WorkList.scss";
 import Icon from "../Icon/Icon";
 
 ///** функция возвращает время создание поста */
-const dataPost = (timestamp: number) => {
-  return ("" + new Date(timestamp).toISOString())
-    .replace(/^([^T]+)T(.+)$/, "$1")
-    .replace(/^(\d+)-(\d+)-(\d+)$/, "$3.$2.$1");
+const dataPost = (timestamp: any) => {
+  if (timestamp) {
+    return ("" + new Date(timestamp).toISOString())
+      .replace(/^([^T]+)T(.+)$/, "$1")
+      .replace(/^(\d+)-(\d+)-(\d+)$/, "$3.$2.$1");
+  }
 };
 
 const WorkList: React.FC<any> = ({ item }): JSX.Element => {
@@ -18,7 +20,7 @@ const WorkList: React.FC<any> = ({ item }): JSX.Element => {
       <div className="post__item">
         <div className="post__inner">
           <span className="post__date">
-            Дата добавления: {!item.date ? dataPost(item.id) : item.date}
+            Дата добавления: {dataPost(item.id)}
           </span>
           <h2>{item.title}</h2>
           <hr />
@@ -37,6 +39,7 @@ const WorkList: React.FC<any> = ({ item }): JSX.Element => {
             <p>{item.description}</p>
             <hr />
           </details>
+          <p>{item.stack}</p>
         </div>
       </div>
       <div className="post__icon">
