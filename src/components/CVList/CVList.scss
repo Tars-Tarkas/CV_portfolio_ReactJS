@@ -92,7 +92,7 @@
   @apply bg-slate-700 w-full h-10 text-center pt-2 text-white font-bold font-sans uppercase mb-5;
 }
 .info-experience-table {
-  @apply grid grid-cols-[8rem_minmax(8rem,_1fr)] dark:text-white;
+  @apply grid grid-cols-tablework dark:text-white;
 }
 .info-experience-year {
   @apply w-24 align-top text-base text-slate-700 font-medium dark:text-white;
@@ -110,7 +110,7 @@
   @apply mb-5;
 }
 .info-education-table {
-  @apply grid grid-cols-[8rem_minmax(8rem,_1fr)];
+  @apply grid grid-cols-tablework;
 }
 .info-education-year {
   @apply w-24 align-top text-base font-medium dark:text-white;

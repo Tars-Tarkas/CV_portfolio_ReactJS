@@ -41,7 +41,7 @@ const Icon: React.FC<IconProps> = ({
     <div className="icon">
       {link ? (
         <a href={link} target="_blank" rel="noreferrer">
-          <i className={classname + size} onClick={onClick} />
+          <i className={classname} onClick={onClick} />
         </a>
       ) : (
         <>

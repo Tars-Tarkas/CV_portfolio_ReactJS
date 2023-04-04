@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const jfile = "../PF.json";
+// const jfile = "../../public/PF.json";
 
 export const fetchPF: any = createAsyncThunk(
   "PF/fetchPF",
   async function (_, { rejectWithValue }) {
     try {
-      const res = await fetch(jfile, {
-        method: "POST",
+      const res = await fetch("./PF.json", {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
@@ -65,18 +65,29 @@ const PFSlice = createSlice({
       );
     },
   },
-  extraReducers: {
-    [fetchPF.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(fetchPF.pending, (state) => {
       state.loading = true;
-    },
-    [fetchPF.fulfilled]: (state, action) => {
+    });
+    builder.addCase(fetchPF.fulfilled, (state, action) => {
       state.PFjson = action.payload;
       state.error = false;
       state.loading = false;
-    },
-    [fetchPF.rejected]: (state) => {
+    });
+    builder.addCase(fetchPF.rejected, (state, action) => {
       state.error = true;
-    },
+    });
+    // [fetchPF.pending]: (state) => {
+    //   state.loading = true;
+    // },
+    // [fetchPF.fulfilled]: (state, action) => {
+    //   state.PFjson = action.payload;
+    //   state.error = false;
+    //   state.loading = false;
+    // },
+    // [fetchPF.rejected]: (state) => {
+    //   state.error = true;
+    // },
   },
 });
 

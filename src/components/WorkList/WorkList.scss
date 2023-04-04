@@ -16,26 +16,21 @@
 .worklist-description-title {
   @apply bg-slate-700 text-white h-8 font-medium rounded-md pl-2;
 }
-
 .worklist-title {
   @apply font-medium text-lg;
 }
-
 hr {
   @apply block h-1 border-0 border-t-2 m-1 p-0 bg-slate-500;
 }
-
 .worklist-details p {
   @apply p-5 whitespace-pre-line;
 }
 .worklist-details summary::-webkit-details-marker {
   @apply hidden;
 }
-
 .worklist-details > summary {
-  @apply flex list-none items-center;
+  @apply flex list-none items-center cursor-pointer;
 }
-
 .worklist-details summary:before {
   content: "\ea42";
   @apply text-base text-white mr-5;
@@ -47,7 +42,7 @@ hr {
   font-family: "CV";
 }
 .worklist-page-link-block {
-  @apply flex mb-2;
+  @apply flex mb-2 gap-3;
   > i {
     padding-left: 30px;
   }
@@ -55,7 +50,6 @@ hr {
 .post-webpage {
   @apply pr-5;
 }
-
 .worrlist-stack {
   @apply flex gap-3 text-sm py-3 text-slate-600 font-medium;
 }

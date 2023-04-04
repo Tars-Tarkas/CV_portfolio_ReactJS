@@ -10,6 +10,9 @@ module.exports = {
   // ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        tablework: "8rem minmax(8rem,1fr)",
+      },
       gridTemplateRows: {
         layout: "auto 1fr auto",
       },
