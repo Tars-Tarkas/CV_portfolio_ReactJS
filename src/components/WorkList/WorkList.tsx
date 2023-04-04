@@ -5,26 +5,26 @@ import "./WorkList.scss";
 import Icon from "../Icon/Icon";
 
 ///** функция возвращает время создание поста */
-const dataPost = (timestamp: any) => {
-  if (timestamp) {
-    return ("" + new Date(timestamp).toISOString())
-      .replace(/^([^T]+)T(.+)$/, "$1")
-      .replace(/^(\d+)-(\d+)-(\d+)$/, "$3.$2.$1");
-  }
+const dataPost = (timestamp: number) => {
+  return ("" + new Date(timestamp).toISOString()).replace(
+    /^([^T]+)T(.+)$/,
+    "$1"
+  );
 };
 
 const WorkList: React.FC<any> = ({ item }): JSX.Element => {
   const dispatch = useDispatch();
+
   return (
-    <div className="post">
-      <div className="post__item">
-        <div className="post__inner">
-          <span className="post__date">
+    <div className="worklist">
+      <div className="worklist-item">
+        <div className="worklist-inner">
+          <span className="worklist-date">
             Дата добавления: {dataPost(item.id)}
           </span>
-          <h2>{item.title}</h2>
+          <h2 className="worklist-title">{item.title}</h2>
           <hr />
-          <div className="post-page-link-block">
+          <div className="worklist-page-link-block">
             <div className="post-webpage">
               <Icon classname="icon-webpage-dark" link={item.page}></Icon>
             </div>
@@ -32,17 +32,24 @@ const WorkList: React.FC<any> = ({ item }): JSX.Element => {
               <Icon classname="icon-github-dark" link={item.linkrep}></Icon>
             </div>
           </div>
-          <details>
-            <summary className="post__description__title">
-              Описание проекта
-            </summary>
-            <p>{item.description}</p>
-            <hr />
-          </details>
-          <p>{item.stack}</p>
+          <div className="worklist-description">
+            <details className="worklist-details">
+              <summary className="worklist-description-title">
+                Описание проекта
+              </summary>
+              <p>{item.description}</p>
+              <hr />
+            </details>
+          </div>
+          <ul className="worrlist-stack">
+            Стек:
+            {item.stack.map((item: any) => {
+              return <li key={item}>{item}</li>;
+            })}
+          </ul>
         </div>
       </div>
-      <div className="post__icon">
+      <div className="worklist-icon">
         <Icon
           classname="icon-trash"
           text="Удалить"

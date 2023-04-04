@@ -1,18 +1,16 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import { useEffect } from "react";
 import "./Modal.scss";
 import Icon from "../Icon/Icon";
 
-interface ModalProps {
+interface IModalProps {
   visible: boolean;
   content: JSX.Element | JSX.Element[];
   onClose: () => void;
 }
-const Modal: React.FC<ModalProps> = ({
-  visible = false,
-  content = "",
-  onClose,
-}) => {
+const Modal = (props: IModalProps) => {
+  const { visible, content, onClose } = props;
   const onKeydown = ({ key }: KeyboardEvent) => {
     switch (key) {
       case "Escape":
@@ -40,4 +38,9 @@ const Modal: React.FC<ModalProps> = ({
   );
 };
 
+Modal.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  content: PropTypes.node.isRequired,
+  onClose: PropTypes.func,
+};
 export default Modal;

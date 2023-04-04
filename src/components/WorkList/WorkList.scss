@@ -1,56 +1,23 @@
-.post {
+.worklist {
   @apply flex mt-5 mb-5 flex-row;
-  &__none {
-    @apply text-sm text-slate-500 cursor-none line-through pointer-events-none;
-  }
-  &__item {
-    @apply basis-1/9;
-  }
-  &__inner {
-    @apply bg-slate-200 p-4 rounded-md text-left;
-  }
-  &__date {
-    @apply text-xs text-slate-500;
-  }
-  &__description__title {
-    @apply bg-slate-700 text-white h-8 font-medium rounded-md pl-2;
-  }
-  &__page__link {
-    @apply mb-2 leading-3;
-    &__none {
-      @apply mb-2 leading-3;
-    }
-    &__none > a {
-      @apply pr-3 text-sm text-slate-400 line-through pointer-events-none;
-    }
-    &__block {
-      @apply flex;
-    }
-  }
-  &__page__link a {
-    @apply pr-3 text-sm;
-  }
-  &__icon {
-    @apply basis-9/1 pl-2;
-    &__block {
-      @apply flex justify-center flex-wrap;
-      > i {
-        @apply w-8 h-8 bg-slate-200 flex justify-center items-center rounded-md;
-      }
-      span {
-        @apply text-xs text-slate-500;
-      }
-    }
-  }
-  &__delete {
-    @apply cursor-pointer;
-  }
-  &___edit {
-    @apply cursor-pointer;
-  }
+}
+.worklist-item {
+  @apply basis-1/9 w-full;
+}
+.worklist-inner {
+  @apply bg-slate-200 p-4 rounded-md text-left w-full;
+}
+.worklist-date {
+  @apply text-xs text-slate-500;
+}
+.worklist-icon {
+  @apply basis-9/1 pl-2;
+}
+.worklist-description-title {
+  @apply bg-slate-700 text-white h-8 font-medium rounded-md pl-2;
 }
 
-h2 {
+.worklist-title {
   @apply font-medium text-lg;
 }
 
@@ -58,29 +25,28 @@ hr {
   @apply block h-1 border-0 border-t-2 m-1 p-0 bg-slate-500;
 }
 
-details p {
+.worklist-details p {
   @apply p-5 whitespace-pre-line;
 }
-details summary::-webkit-details-marker {
+.worklist-details summary::-webkit-details-marker {
   @apply hidden;
 }
 
-details > summary {
+.worklist-details > summary {
   @apply flex list-none items-center;
 }
 
-details summary:before {
+.worklist-details summary:before {
   content: "\ea42";
   @apply text-base text-white mr-5;
   font-family: "CV";
 }
-
-details[open] summary:before {
+.worklist-details[open] summary:before {
   content: "\ea43";
   @apply text-base text-white mr-5;
   font-family: "CV";
 }
-.post-page-link-block {
+.worklist-page-link-block {
   @apply flex mb-2;
   > i {
     padding-left: 30px;
@@ -88,4 +54,8 @@ details[open] summary:before {
 }
 .post-webpage {
   @apply pr-5;
+}
+
+.worrlist-stack {
+  @apply flex gap-3 text-sm py-3 text-slate-600 font-medium;
 }

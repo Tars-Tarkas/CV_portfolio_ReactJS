@@ -31,11 +31,11 @@ interface IPFtype {
 }
 
 interface IObject {
-  id: Date;
-  title: string;
-  page: string;
-  linkrep: string;
-  description: string;
+  id?: Date;
+  title?: string;
+  page?: string;
+  linkrep?: string;
+  description?: string;
   stack?: string[];
 }
 
@@ -58,6 +58,7 @@ const PFSlice = createSlice({
         stack: action.payload.stack,
       });
     },
+
     removeWork(state, action) {
       state.PFjson = state.PFjson.filter(
         (item) => item.id !== action.payload.id

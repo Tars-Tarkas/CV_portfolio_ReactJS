@@ -1,18 +1,20 @@
 import * as React from "react";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import Icon from "../Icon/Icon";
 import "./Chip.scss";
 
 interface IchipProps {
-  title?: string;
-  arrValues?: (stack: string[]) => void;
+  title: string;
+  updateStack: (value: string[]) => void;
 }
 
-const Chip: React.FC<IchipProps> = ({ title, arrValues }): JSX.Element => {
+const Chip = (props: IchipProps): JSX.Element => {
+  const { title, updateStack } = props;
   const [value, setValue] = useState<string>("");
-  const [valueChip, setValueChip] = useState<string[]>(["ddd"]);
+  const [valueChip, setValueChip] = useState<string[]>([]);
 
-  const addItemArray = (item: string) => {
+  const addItemArray = (item: any) => {
     if (item.trim().length !== 0) {
       const newValue = [item, ...valueChip.filter((value) => value !== item)];
       setValueChip(newValue);
@@ -26,7 +28,7 @@ const Chip: React.FC<IchipProps> = ({ title, arrValues }): JSX.Element => {
     if (e.key === "Enter") {
       e.preventDefault();
       addItemArray(item);
-      arrValues?.(valueChip);
+      updateStack?.([...valueChip, value]);
       setValue("");
     }
   };
@@ -72,6 +74,14 @@ const Chip: React.FC<IchipProps> = ({ title, arrValues }): JSX.Element => {
       </ul>
     </div>
   );
+};
+Chip.propTypes = {
+  title: PropTypes.string.isRequired,
+  updateStack: PropTypes.func.isRequired,
+};
+
+Chip.defaultProps = {
+  title: "Заголовок",
 };
 
 export default Chip;

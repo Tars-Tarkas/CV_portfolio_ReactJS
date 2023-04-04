@@ -12,6 +12,22 @@ i {
 .icon {
   @apply flex justify-center flex-wrap cursor-pointer w-fit;
 }
+.icon-close:before {
+  content: "\ea0f";
+  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
+  &-xs::before {
+    @apply text-xs;
+  }
+  &-sm::before {
+    @apply text-sm;
+  }
+  &-base::before {
+    @apply text-base;
+  }
+  &-lg::before {
+    @apply text-lg;
+  }
+}
 .icon-text {
   @apply text-xs text-slate-900 p-1 w-auto;
 }
@@ -70,10 +86,7 @@ i {
   content: "\e9ac";
   @apply text-slate-600 text-xs;
 }
-.icon-close:before {
-  content: "\ea0f";
-  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
-}
+
 .icon-close:hover:before {
   @apply bg-slate-500 transition-all text-white;
 }

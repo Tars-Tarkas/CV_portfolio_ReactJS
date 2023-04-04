@@ -1,8 +1,8 @@
 .chip-input {
-  @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 mr-2 placeholder:text-sm mb-4;
+  @apply w-full h-7 text-sm font-normal rounded-md focus:outline-none px-2 mr-2 placeholder:text-sm;
 }
 .chip-field {
-  @apply flex flex-wrap bg-slate-600 rounded-md;
+  @apply flex flex-wrap bg-slate-600 rounded-md mb-3;
   li {
     @apply text-slate-800;
   }

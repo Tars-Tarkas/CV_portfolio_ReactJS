@@ -1,12 +1,15 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import "./Icon.scss";
 
 interface IconProps {
   classname: stylename;
+  size?: size;
   text?: string | null;
   onClick?: (e: any) => void;
   link?: string;
 }
+type size = "-xs" | "sm" | "base" | "lg";
 
 type stylename =
   | "icon-close"
@@ -30,6 +33,7 @@ type stylename =
 const Icon: React.FC<IconProps> = ({
   classname,
   text,
+  size,
   onClick,
   link,
 }): JSX.Element => {
@@ -37,7 +41,7 @@ const Icon: React.FC<IconProps> = ({
     <div className="icon">
       {link ? (
         <a href={link} target="_blank" rel="noreferrer">
-          <i className={classname} onClick={onClick} />
+          <i className={classname + size} onClick={onClick} />
         </a>
       ) : (
         <>
@@ -48,5 +52,8 @@ const Icon: React.FC<IconProps> = ({
     </div>
   );
 };
+
+Icon.propTypes = {};
+Icon.defaultProps = {};
 
 export default Icon;

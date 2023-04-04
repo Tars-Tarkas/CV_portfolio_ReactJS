@@ -1,4 +1,5 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addWork } from "../../store/PFSlice";
@@ -6,9 +7,13 @@ import "./AddWork.scss";
 import Icon from "../Icon/Icon";
 import Chip from "../Chip/Chip";
 
-const AddWork: React.FC<React.HTMLProps<Element>> = ({
-  title,
-}): JSX.Element => {
+interface IaddWork {
+  title: string;
+  textbtn: string;
+}
+
+const AddWork = (props: IaddWork): JSX.Element => {
+  const { title, textbtn } = props;
   let uId = () => new Date().getTime();
 
   const getObj = () => {
@@ -39,27 +44,17 @@ const AddWork: React.FC<React.HTMLProps<Element>> = ({
     setObj({ ...obj, [prop]: "" });
   };
 
-  const updateData = (value: any) => {
+  const updateStack = (value: any) => {
     setObj({ ...obj, stack: value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setObj(getObj());
+    dispatch(addWork(obj));
     const resetForm = e.target as HTMLFormElement;
     resetForm.reset();
-    dispatch(
-      addWork({
-        id: obj.id,
-        title: obj.title,
-        page: obj.page,
-        linkrep: obj.linkrep,
-        description: obj.description,
-        stack: obj.stack,
-      })
-    );
   };
-  console.log(obj);
 
   return (
     <form onSubmit={handleSubmit} className="addwork-form">
@@ -118,10 +113,19 @@ const AddWork: React.FC<React.HTMLProps<Element>> = ({
           onClick={(e) => clearInput("description", e)}
         />
       </div>
-      <Chip title="" arrValues={updateData} />
-      <button className="addwork-btn">Добавить</button>
+      <Chip title="Стек:" updateStack={updateStack} />
+      <button className="addwork-btn">{textbtn}</button>
     </form>
   );
 };
 
+AddWork.propTypes = {
+  title: PropTypes.string.isRequired,
+  textbtn: PropTypes.string.isRequired,
+};
+
+AddWork.defaultProps = {
+  title: "text",
+  textbtn: "text button",
+};
 export default AddWork;

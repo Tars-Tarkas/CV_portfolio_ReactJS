@@ -2,8 +2,6 @@ import * as React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTraining } from "../../store/traininSlice";
-import Loader from "../Loader/Loader";
-import Chip from "../Chip/Chip";
 import "./Training.scss";
 
 const Training: React.FC<any> = ({ title }): JSX.Element => {
@@ -19,9 +17,7 @@ const Training: React.FC<any> = ({ title }): JSX.Element => {
 
   return (
     <>
-      <div className="container">
-        <Chip />
-      </div>
+      <div className="container"></div>
     </>
   );
 };

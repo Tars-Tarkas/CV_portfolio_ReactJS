@@ -1,4 +1,5 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Portfolio.scss";
@@ -8,7 +9,11 @@ import { fetchPF } from "../../store/PFSlice";
 import AdWork from "../AddWork/AddWork";
 import Loader from "../Loader/Loader";
 
-const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
+interface IPortfolio {
+  title: string;
+}
+const Portfolio = (props: IPortfolio): JSX.Element => {
+  const { title } = props;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,7 +37,7 @@ const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
         </button>
         <Modal
           visible={isModal}
-          content={<AdWork title="Добавить работу" />}
+          content={<AdWork title="Добавить работу" textbtn="Добавить" />}
           onClose={onClose}
         />
 
@@ -48,6 +53,10 @@ const Portfolio: React.FC<any> = ({ title }): JSX.Element => {
       </div>
     </>
   );
+};
+
+Portfolio.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 export default Portfolio;
