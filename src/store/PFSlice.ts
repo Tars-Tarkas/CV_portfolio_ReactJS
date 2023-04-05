@@ -19,7 +19,7 @@ export const fetchPF: any = createAsyncThunk(
       const data = await res.json();
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -27,7 +27,7 @@ export const fetchPF: any = createAsyncThunk(
 interface IPFtype {
   PFjson: IObject[];
   loading: boolean | null;
-  error: boolean | null;
+  error: string | null;
 }
 
 interface IObject {
@@ -48,15 +48,7 @@ const PFSlice = createSlice({
   } as IPFtype,
   reducers: {
     addWork(state, action) {
-      // state.PFjson = [...state.PFjson, action.payload];
-      state.PFjson.push({
-        id: action.payload.id,
-        title: action.payload.title,
-        page: action.payload.page,
-        linkrep: action.payload.linkrep,
-        description: action.payload.description,
-        stack: action.payload.stack,
-      });
+      state.PFjson = [...state.PFjson, action.payload];
     },
 
     removeWork(state, action) {
@@ -68,26 +60,16 @@ const PFSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchPF.pending, (state) => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(fetchPF.fulfilled, (state, action) => {
       state.PFjson = action.payload;
-      state.error = false;
       state.loading = false;
     });
     builder.addCase(fetchPF.rejected, (state, action) => {
-      state.error = true;
+      state.loading = false;
+      state.error = action.payload;
     });
-    // [fetchPF.pending]: (state) => {
-    //   state.loading = true;
-    // },
-    // [fetchPF.fulfilled]: (state, action) => {
-    //   state.PFjson = action.payload;
-    //   state.error = false;
-    //   state.loading = false;
-    // },
-    // [fetchPF.rejected]: (state) => {
-    //   state.error = true;
-    // },
   },
 });
 

@@ -12,32 +12,6 @@ const dataPost = (timestamp: any) => {
   );
 };
 
-// function formatDate(d: any) {
-//   const date = new Date(d);
-//   let dd = String(date.getDate());
-//   var mm = String(date.getMonth() + 1);
-//   var yyyy = date.getFullYear();
-//   if (dd < 10) {
-//     dd = "0" + dd;
-//   }
-//   if (mm < 10) {
-//     mm = "0" + mm;
-//   }
-//   return (d = dd + "/" + mm + "/" + yyyy);
-// }
-
-// function formatDate(input: any) {
-//   var datePart = input.match(/\d+/g),
-//     year = datePart[0].substring(2), // get only two digits
-//     month = datePart[1],
-//     day = datePart[2];
-
-//   return day + "/" + month + "/" + year;
-// }
-// function ChangeFormateDate(oldDate: any) {
-//   var p = dateString.split(/\D/g);
-//   return [p[2], p[1], p[0]].join("/");
-// }
 const WorkList: React.FC<any> = ({ item }): JSX.Element => {
   const dispatch = useDispatch();
 

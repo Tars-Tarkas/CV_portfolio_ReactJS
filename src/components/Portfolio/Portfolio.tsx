@@ -24,7 +24,7 @@ const Portfolio = (props: IPortfolio): JSX.Element => {
     dispatch(fetchPF());
   }, [dispatch]);
 
-  const { PFjson, loading } = useSelector((state: any) => state.PF);
+  const { PFjson, loading, error } = useSelector((state: any) => state.PF);
 
   const onClose = () => setModal(false);
   const [isModal, setModal] = useState(false);
@@ -44,6 +44,8 @@ const Portfolio = (props: IPortfolio): JSX.Element => {
         <div className="container">
           {loading ? (
             <Loader />
+          ) : error ? (
+            <p>{error}</p>
           ) : (
             PFjson.map((item: any, index: any) => (
               <WorkList key={index} item={item} />

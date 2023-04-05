@@ -7,7 +7,7 @@ export const fetchTraining: any = createAsyncThunk(
   async function (_, { rejectWithValue }) {
     try {
       const res = await fetch(jfile, {
-        method: "POST",
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
@@ -19,7 +19,7 @@ export const fetchTraining: any = createAsyncThunk(
       const data = await res.json();
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -27,7 +27,7 @@ export const fetchTraining: any = createAsyncThunk(
 interface ICVtype {
   trainingJson: [];
   loading: boolean | null;
-  error: boolean | null;
+  error: string | null;
 }
 
 const trainingSlice = createSlice({
@@ -38,18 +38,19 @@ const trainingSlice = createSlice({
     error: null,
   } as ICVtype,
   reducers: {},
-  extraReducers: {
-    [fetchTraining.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(fetchTraining.pending, (state) => {
       state.loading = true;
-    },
-    [fetchTraining.fulfilled]: (state, action) => {
+      state.error = null;
+    });
+    builder.addCase(fetchTraining.fulfilled, (state, action) => {
       state.trainingJson = action.payload;
       state.loading = false;
-      state.error = false;
-    },
-    [fetchTraining.rejected]: (state) => {
-      state.error = true;
-    },
+    });
+    builder.addCase(fetchTraining.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
   },
 });
 

@@ -19,7 +19,7 @@ export const fetchCV: any = createAsyncThunk(
       const data = await res.json();
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -27,7 +27,7 @@ export const fetchCV: any = createAsyncThunk(
 interface ICVtype {
   CVjson: [];
   loading: boolean | null;
-  error: boolean | null;
+  error: string | null;
 }
 
 const CVSlice = createSlice({
@@ -41,29 +41,17 @@ const CVSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchCV.pending, (state) => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(fetchCV.fulfilled, (state, action) => {
       state.CVjson = action.payload;
-      state.error = false;
       state.loading = false;
     });
     builder.addCase(fetchCV.rejected, (state, action) => {
-      state.error = true;
+      state.loading = false;
+      state.error = action.payload;
     });
   },
-  // extraReducers: {
-  //   [fetchCV.pending]: (state) => {
-  //     state.loading = true;
-  //   },
-  //   [fetchCV.fulfilled]: (state, action) => {
-  //     state.CVjson = action.payload;
-  //     state.loading = false;
-  //     state.error = false;
-  //   },
-  //   [fetchCV.rejected]: (state) => {
-  //     state.error = true;
-  //   },
-  // },
 });
 
 export default CVSlice.reducer;

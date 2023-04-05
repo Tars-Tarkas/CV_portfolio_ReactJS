@@ -18,8 +18,12 @@ const CV: React.FC<any> = ({ title }): JSX.Element => {
     document.title = title;
   });
 
-  const { CVjson, loading } = useSelector((state: any) => state.CV);
-  return <>{loading ? <Loader /> : <CVList data={CVjson} />}</>;
+  const { CVjson, loading, error } = useSelector((state: any) => state.CV);
+  return (
+    <>
+      {loading ? <Loader /> : error ? <p>{error}</p> : <CVList data={CVjson} />}
+    </>
+  );
 };
 
 export default CV;
