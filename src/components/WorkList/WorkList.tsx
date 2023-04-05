@@ -1,6 +1,9 @@
 import * as React from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeWork } from "../../store/PFSlice";
+import Modal from "../Modal/Modal";
+import AddWork from "../AddWork/AddWork";
 import "./WorkList.scss";
 import Icon from "../Icon/Icon";
 
@@ -14,7 +17,8 @@ const dataPost = (timestamp: any) => {
 
 const WorkList: React.FC<any> = ({ item }): JSX.Element => {
   const dispatch = useDispatch();
-
+  const [isModal, setModal] = useState(false);
+  const onClose = () => setModal(false);
   return (
     <div className="worklist">
       <div className="worklist-item">
@@ -54,6 +58,16 @@ const WorkList: React.FC<any> = ({ item }): JSX.Element => {
           classname="icon-trash"
           text="Удалить"
           onClick={() => dispatch(removeWork(item))}
+        />
+        <Icon
+          classname="icon-edit"
+          text="Правка"
+          onClick={() => setModal(true)}
+        />
+        <Modal
+          visible={isModal}
+          content={<AddWork title="Редактировать работу" textbtn="Изменить" />}
+          onClose={onClose}
         />
       </div>
     </div>

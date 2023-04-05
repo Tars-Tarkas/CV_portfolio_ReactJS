@@ -28,6 +28,18 @@ i {
     @apply text-lg;
   }
 }
+.icon-close:hover:before {
+  @apply bg-slate-500 transition-all text-white;
+}
+
+.icon-edit:before {
+  content: "\e908";
+  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
+}
+.icon-edit:hover:before {
+  content: "\e908";
+  @apply bg-slate-500 transition-all text-white;
+}
 .icon-text {
   @apply text-xs text-slate-900 p-1 w-auto;
 }
@@ -71,10 +83,7 @@ i {
   font-size: 20px;
   color: white;
 }
-.icon-edit:before {
-  content: "\e908";
-  @apply text-slate-600 text-lg;
-}
+
 .icon-trash:before {
   content: "\e9ac";
   @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
@@ -87,9 +96,6 @@ i {
   @apply text-slate-600 text-xs;
 }
 
-.icon-close:hover:before {
-  @apply bg-slate-500 transition-all text-white;
-}
 .icon-circle-right:before {
   content: "\ea42";
   @apply text-white text-lg;

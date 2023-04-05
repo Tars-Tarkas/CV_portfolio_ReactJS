@@ -28,14 +28,15 @@ interface IPFtype {
   PFjson: IObject[];
   loading: boolean | null;
   error: string | null;
+  isEdit: boolean;
 }
 
 interface IObject {
-  id?: Date;
-  title?: string;
-  page?: string;
-  linkrep?: string;
-  description?: string;
+  id: number;
+  title: string;
+  page: string;
+  linkrep: string;
+  description: string;
   stack?: string[];
 }
 
@@ -45,16 +46,39 @@ const PFSlice = createSlice({
     PFjson: [],
     loading: null,
     error: null,
+    isEdit: false,
+    editWorkId: "",
   } as IPFtype,
   reducers: {
     addWork(state, action) {
       state.PFjson = [...state.PFjson, action.payload];
+      state.isEdit = action.payload.isEdit;
     },
 
     removeWork(state, action) {
       state.PFjson = state.PFjson.filter(
         (item) => item.id !== action.payload.id
       );
+    },
+    editWork(state, action) {
+      const editWork = action.payload;
+      let newWork = state.PFjson.find((item) => item.id === editWork.id);
+      return { ...state, isEdit: action.payload.isEdit, editWork: newWork };
+    },
+    updateWork(state, action) {
+      const { id, title, page, linkrep, description, stack } = action.payload;
+      const works = state.PFjson.filter((item) => {
+        return item.id !== id;
+      });
+      let work = state.PFjson.find((item) => item.id === id)!;
+      // work = action.payload;
+      work.title = title;
+      work.page = page;
+      work.linkrep = linkrep;
+      work.description = description;
+      work.stack = stack;
+      works.push(work as IObject);
+      return { ...state, PFjson: [...works], isEdit: false };
     },
   },
   extraReducers: (builder) => {
@@ -73,6 +97,6 @@ const PFSlice = createSlice({
   },
 });
 
-export const { addWork, removeWork } = PFSlice.actions;
+export const { addWork, removeWork, updateWork, editWork } = PFSlice.actions;
 
 export default PFSlice.reducer;

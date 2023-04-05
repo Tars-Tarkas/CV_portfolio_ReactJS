@@ -1,8 +1,8 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addWork } from "../../store/PFSlice";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addWork, updateWork } from "../../store/PFSlice";
 import "./AddWork.scss";
 import Icon from "../Icon/Icon";
 import Chip from "../Chip/Chip";
@@ -12,8 +12,22 @@ interface IaddWork {
   textbtn: string;
 }
 
+interface IObject {
+  id: Date;
+  title: string;
+  page: string;
+  linkrep: string;
+  description: string;
+  stack?: string[];
+}
+
 const AddWork = (props: IaddWork): JSX.Element => {
   const { title, textbtn } = props;
+  const [valueEdit, setValueEdit] = useState({});
+  const { isEdit } = useSelector((state: any) => state.PF);
+  const editWork = useSelector((state: any) => state.PF.editWork);
+
+  const dispatch = useDispatch();
   let uId = () => new Date().getTime();
 
   const getObj = () => {
@@ -30,7 +44,9 @@ const AddWork = (props: IaddWork): JSX.Element => {
 
   const [obj, setObj] = useState(getObj);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    setValueEdit(() => editWork);
+  }, [editWork]);
 
   const handleInputChange = (
     prop: string,
@@ -50,11 +66,19 @@ const AddWork = (props: IaddWork): JSX.Element => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setObj(getObj());
-    dispatch(addWork(obj));
+    // setObj(getObj());
+
+    if (isEdit) {
+      dispatch(updateWork(editWork.id));
+    } else {
+      dispatch(addWork(obj));
+    }
+
     const resetForm = e.target as HTMLFormElement;
     resetForm.reset();
   };
+
+  console.log(obj);
 
   return (
     <form onSubmit={handleSubmit} className="addwork-form">
@@ -65,7 +89,8 @@ const AddWork = (props: IaddWork): JSX.Element => {
         <input
           type="text"
           className="addwork-input addwork-input-title"
-          value={obj.title || ""}
+          // value={obj.title || ""}
+          defaultValue={obj?.title}
           required={true}
           placeholder="Добавить заголовок"
           onChange={(e) => handleInputChange("title", e)}
@@ -78,7 +103,8 @@ const AddWork = (props: IaddWork): JSX.Element => {
           <input
             type="text"
             className="addwork-input addwork-input-page"
-            value={obj.page || ""}
+            // value={obj.page}
+            defaultValue={obj?.page}
             placeholder="Ссылка на страницу"
             onChange={(e) => handleInputChange("page", e)}
           />
@@ -88,7 +114,8 @@ const AddWork = (props: IaddWork): JSX.Element => {
           <input
             type="text"
             className="addwork-input"
-            value={obj.linkrep || ""}
+            // value={obj.linkrep}
+            defaultValue={obj?.linkrep}
             placeholder="Ссылка на репозитарий"
             onChange={(e) => handleInputChange("linkrep", e)}
           />
@@ -102,7 +129,8 @@ const AddWork = (props: IaddWork): JSX.Element => {
       <div className="addwork-input-block">
         <textarea
           className="addwork-textarea"
-          value={obj.description || ""}
+          value={obj?.description}
+          // defaultValue={obj?.description}
           maxLength={150}
           required={true}
           placeholder="Добавить описание проекта (максимально 150 символов)"
