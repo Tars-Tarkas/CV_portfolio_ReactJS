@@ -37,7 +37,9 @@ const Portfolio = (props: IPortfolio): JSX.Element => {
         </button>
         <Modal
           visible={isModal}
-          content={<AdWork title="Добавить работу" textbtn="Добавить" />}
+          content={
+            <AdWork title="Добавить работу" textbtn="Добавить" mode="Add" />
+          }
           onClose={onClose}
         />
 
@@ -47,7 +49,7 @@ const Portfolio = (props: IPortfolio): JSX.Element => {
           ) : error ? (
             <p>{error}</p>
           ) : (
-            PFjson.map((item: any, index: any) => (
+            PFjson?.map((item: any, index: any) => (
               <WorkList key={index} item={item} />
             ))
           )}
@@ -59,6 +61,10 @@ const Portfolio = (props: IPortfolio): JSX.Element => {
 
 Portfolio.propTypes = {
   title: PropTypes.string.isRequired,
+};
+
+Portfolio.defaultProp = {
+  title: "Заголовок",
 };
 
 export default Portfolio;

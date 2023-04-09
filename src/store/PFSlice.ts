@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { IObject } from "../types/PF";
 // const jfile = "../../public/PF.json";
 
 export const fetchPF: any = createAsyncThunk(
@@ -29,15 +29,7 @@ interface IPFtype {
   loading: boolean | null;
   error: string | null;
   isEdit: boolean;
-}
-
-interface IObject {
-  id: number;
-  title: string;
-  page: string;
-  linkrep: string;
-  description: string;
-  stack?: string[];
+  editWorkId: "";
 }
 
 const PFSlice = createSlice({
@@ -50,9 +42,30 @@ const PFSlice = createSlice({
     editWorkId: "",
   } as IPFtype,
   reducers: {
-    addWork(state, action) {
-      state.PFjson = [...state.PFjson, action.payload];
-      state.isEdit = action.payload.isEdit;
+    addWork(state, action: PayloadAction<IObject>) {
+      state.PFjson = [
+        (action.payload = {
+          id: action.payload.id,
+          title: action.payload.title,
+          page: action.payload.page,
+          linkrep: action.payload.linkrep,
+          description: action.payload.description,
+          stack: action.payload.stack,
+        }),
+        ...state.PFjson,
+      ];
+      state.isEdit = false;
+    },
+    updateWork(state, action: PayloadAction<IObject>) {
+      const { id, title, page, linkrep, description, stack } = action.payload;
+      const updatedWork = state.PFjson.find((todo) => todo?.id === id);
+      if (updatedWork !== undefined) {
+        updatedWork.title = title;
+        updatedWork.page = page;
+        updatedWork.linkrep = linkrep;
+        updatedWork.description = description;
+        updatedWork.stack = stack;
+      }
     },
 
     removeWork(state, action) {
@@ -60,25 +73,11 @@ const PFSlice = createSlice({
         (item) => item.id !== action.payload.id
       );
     },
-    editWork(state, action) {
-      const editWork = action.payload;
-      let newWork = state.PFjson.find((item) => item.id === editWork.id);
-      return { ...state, isEdit: action.payload.isEdit, editWork: newWork };
-    },
-    updateWork(state, action) {
-      const { id, title, page, linkrep, description, stack } = action.payload;
-      const works = state.PFjson.filter((item) => {
-        return item.id !== id;
-      });
-      let work = state.PFjson.find((item) => item.id === id)!;
-      // work = action.payload;
-      work.title = title;
-      work.page = page;
-      work.linkrep = linkrep;
-      work.description = description;
-      work.stack = stack;
-      works.push(work as IObject);
-      return { ...state, PFjson: [...works], isEdit: false };
+    editWork(state, { payload: { editedWork } }) {
+      state.PFjson = state.PFjson.map((item) =>
+        item.id === editedWork.id ? editedWork : item
+      );
+      state.editWorkId = editedWork.item;
     },
   },
   extraReducers: (builder) => {
@@ -97,6 +96,6 @@ const PFSlice = createSlice({
   },
 });
 
-export const { addWork, removeWork, updateWork, editWork } = PFSlice.actions;
+export const { addWork, removeWork, editWork, updateWork } = PFSlice.actions;
 
 export default PFSlice.reducer;

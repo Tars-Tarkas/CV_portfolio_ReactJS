@@ -4,43 +4,18 @@ import PropTypes from "prop-types";
 import Icon from "../Icon/Icon";
 import "./Chip.scss";
 
-interface IchipProps {
+interface IChipProps {
   title: string;
-  updateStack: (value: string[]) => void;
+  values: string[];
+  removeChip: (item: any) => void;
+  enterChipInput: (e: any, value: any) => void;
 }
 
-const Chip = (props: IchipProps): JSX.Element => {
-  const { title, updateStack } = props;
+const Chip = (props: IChipProps): JSX.Element => {
+  const { title, values, enterChipInput, removeChip } = props;
   const [value, setValue] = useState<string>("");
-  const [valueChip, setValueChip] = useState<string[]>([]);
 
-  const addItemArray = (item: any) => {
-    if (item.trim().length !== 0) {
-      const newValue = [item, ...valueChip.filter((value) => value !== item)];
-      setValueChip(newValue);
-    }
-  };
-
-  const onEnter = (
-    e: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>,
-    item: string
-  ) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      addItemArray(item);
-      updateStack?.([...valueChip, value]);
-      setValue("");
-    }
-  };
-
-  const removeItem = (item: any) => {
-    const newValue = valueChip.filter((value) => {
-      return value !== item;
-    });
-    setValueChip(newValue);
-  };
-
-  const onChange = (
+  const changeChipInput = (
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
     if (e.target.value) {
@@ -53,18 +28,19 @@ const Chip = (props: IchipProps): JSX.Element => {
       <h2 className="chip-title">{title}</h2>
       <input
         value={value}
+        name="chip"
         className="chip-input"
         type="text"
-        onKeyDown={(e) => onEnter(e, value)}
-        onChange={onChange}
+        onKeyDown={(e) => enterChipInput(e, value)}
+        onChange={changeChipInput}
       />
       <ul className="chip-field">
-        {valueChip.map((item): any => {
+        {values?.map((item: any) => {
           return (
             <li
               className="chip-field-item"
               key={item}
-              onClick={() => removeItem(item)}
+              onClick={() => removeChip(item)}
             >
               {item}
               <Icon classname="clear-btn" />
@@ -77,11 +53,12 @@ const Chip = (props: IchipProps): JSX.Element => {
 };
 Chip.propTypes = {
   title: PropTypes.string.isRequired,
-  updateStack: PropTypes.func.isRequired,
+  values: PropTypes.array,
 };
 
 Chip.defaultProps = {
   title: "Заголовок",
+  values: ["React"],
 };
 
 export default Chip;

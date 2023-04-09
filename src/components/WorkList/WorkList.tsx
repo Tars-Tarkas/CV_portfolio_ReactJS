@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { removeWork } from "../../store/PFSlice";
+import { removeWork, editWork } from "../../store/PFSlice";
 import Modal from "../Modal/Modal";
 import AddWork from "../AddWork/AddWork";
 import "./WorkList.scss";
@@ -16,24 +17,30 @@ const dataPost = (timestamp: any) => {
 };
 
 const WorkList: React.FC<any> = ({ item }): JSX.Element => {
+  const { id, title, page, linkrep, description, stack } = item;
   const dispatch = useDispatch();
   const [isModal, setModal] = useState(false);
+
   const onClose = () => setModal(false);
+
+  const onEdit = () => {
+    setModal(true);
+    dispatch(editWork({ editedWork: { item } }));
+  };
+
   return (
     <div className="worklist">
       <div className="worklist-item">
         <div className="worklist-inner">
-          <span className="worklist-date">
-            Дата добавления: {dataPost(item.id)}
-          </span>
-          <h2 className="worklist-title">{item.title}</h2>
+          <span className="worklist-date">Дата добавления: {dataPost(id)}</span>
+          <h2 className="worklist-title">{title}</h2>
           <hr />
           <div className="worklist-page-link-block">
             <div className="worklist-webpage">
-              <Icon classname="icon-webpage-dark" link={item.page}></Icon>
+              <Icon classname="icon-webpage-dark" link={page}></Icon>
             </div>
             <div className="worklist-github">
-              <Icon classname="icon-github-dark" link={item.linkrep}></Icon>
+              <Icon classname="icon-github-dark" link={linkrep}></Icon>
             </div>
           </div>
           <div className="worklist-description">
@@ -41,13 +48,13 @@ const WorkList: React.FC<any> = ({ item }): JSX.Element => {
               <summary className="worklist-description-title">
                 Описание проекта
               </summary>
-              <p>{item.description}</p>
+              <p>{description}</p>
               <hr />
             </details>
           </div>
-          <ul className="worrlist-stack">
+          <ul className="worklist-stack">
             Стек:
-            {item.stack.map((item: any) => {
+            {stack?.map((item: any) => {
               return <li key={item}>{item}</li>;
             })}
           </ul>
@@ -59,19 +66,25 @@ const WorkList: React.FC<any> = ({ item }): JSX.Element => {
           text="Удалить"
           onClick={() => dispatch(removeWork(item))}
         />
-        <Icon
-          classname="icon-edit"
-          text="Правка"
-          onClick={() => setModal(true)}
-        />
+        <Icon classname="icon-edit" text="Правка" onClick={onEdit} />
         <Modal
           visible={isModal}
-          content={<AddWork title="Редактировать работу" textbtn="Изменить" />}
+          content={
+            <AddWork
+              title="Редактировать работу"
+              textbtn="Изменить"
+              mode="Edit"
+            />
+          }
           onClose={onClose}
         />
       </div>
     </div>
   );
+};
+
+WorkList.propTypes = {
+  item: PropTypes.object,
 };
 
 export default WorkList;

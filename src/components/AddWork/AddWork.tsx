@@ -6,26 +6,17 @@ import { addWork, updateWork } from "../../store/PFSlice";
 import "./AddWork.scss";
 import Icon from "../Icon/Icon";
 import Chip from "../Chip/Chip";
+import { IObject } from "../../types/PF";
 
-interface IaddWork {
+interface IAddWork {
   title: string;
   textbtn: string;
+  mode: IMode;
 }
+type IMode = "Add" | "Edit";
 
-interface IObject {
-  id: Date;
-  title: string;
-  page: string;
-  linkrep: string;
-  description: string;
-  stack?: string[];
-}
-
-const AddWork = (props: IaddWork): JSX.Element => {
-  const { title, textbtn } = props;
-  const [valueEdit, setValueEdit] = useState({});
-  const { isEdit } = useSelector((state: any) => state.PF);
-  const editWork = useSelector((state: any) => state.PF.editWork);
+const AddWork = (props: IAddWork): JSX.Element => {
+  const { title, textbtn, mode } = props;
 
   const dispatch = useDispatch();
   let uId = () => new Date().getTime();
@@ -42,11 +33,48 @@ const AddWork = (props: IaddWork): JSX.Element => {
     return initialValues;
   };
 
-  const [obj, setObj] = useState(getObj);
+  const { editWorkId } = useSelector((state: any) => state.PF);
+
+  const [obj, setObj] = useState<IObject>(getObj);
+  const [valuesChip, setValuesChip] = useState<string[]>([]);
 
   useEffect(() => {
-    setValueEdit(() => editWork);
-  }, [editWork]);
+    switch (mode) {
+      case "Edit":
+        setObj(editWorkId);
+        setValuesChip(editWorkId.stack);
+        break;
+      case "Add":
+        setObj(obj);
+        break;
+      default:
+        break;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode]);
+
+  const addItemArray = (value: any) => {
+    if (value.trim().length !== 0) {
+      const newValue = [value, ...valuesChip.filter((v) => v !== value)];
+      setValuesChip(newValue);
+    }
+  };
+
+  const enterChipInput = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    item: string
+  ) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addItemArray(item);
+    }
+  };
+  const removeChip = (item: any) => {
+    const newValue = valuesChip.filter((value) => {
+      return value !== item;
+    });
+    setValuesChip(newValue);
+  };
 
   const handleInputChange = (
     prop: string,
@@ -60,25 +88,40 @@ const AddWork = (props: IaddWork): JSX.Element => {
     setObj({ ...obj, [prop]: "" });
   };
 
-  const updateStack = (value: any) => {
-    setObj({ ...obj, stack: value });
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // setObj(getObj());
-
-    if (isEdit) {
-      dispatch(updateWork(editWork.id));
-    } else {
-      dispatch(addWork(obj));
+    switch (mode) {
+      case "Edit":
+        dispatch(
+          updateWork({
+            id: obj.id,
+            title: obj.title,
+            page: obj.page,
+            linkrep: obj.linkrep,
+            description: obj.description,
+            stack: valuesChip,
+          })
+        );
+        break;
+      case "Add":
+        dispatch(
+          addWork({
+            id: obj.id,
+            title: obj.title,
+            page: obj.page,
+            linkrep: obj.linkrep,
+            description: obj.description,
+            stack: valuesChip,
+          })
+        );
+        break;
+      default:
+        break;
     }
 
     const resetForm = e.target as HTMLFormElement;
     resetForm.reset();
   };
-
-  console.log(obj);
 
   return (
     <form onSubmit={handleSubmit} className="addwork-form">
@@ -88,9 +131,9 @@ const AddWork = (props: IaddWork): JSX.Element => {
       <div className="addwork-input-block">
         <input
           type="text"
+          name="title"
           className="addwork-input addwork-input-title"
-          // value={obj.title || ""}
-          defaultValue={obj?.title}
+          value={obj?.title || ""}
           required={true}
           placeholder="Добавить заголовок"
           onChange={(e) => handleInputChange("title", e)}
@@ -102,9 +145,9 @@ const AddWork = (props: IaddWork): JSX.Element => {
         <div className="addwork-input-block">
           <input
             type="text"
+            name="page"
             className="addwork-input addwork-input-page"
-            // value={obj.page}
-            defaultValue={obj?.page}
+            value={obj?.page || ""}
             placeholder="Ссылка на страницу"
             onChange={(e) => handleInputChange("page", e)}
           />
@@ -113,13 +156,12 @@ const AddWork = (props: IaddWork): JSX.Element => {
         <div className="addwork-input-block">
           <input
             type="text"
+            name="linkrep"
             className="addwork-input"
-            // value={obj.linkrep}
-            defaultValue={obj?.linkrep}
+            value={obj?.linkrep || ""}
             placeholder="Ссылка на репозитарий"
             onChange={(e) => handleInputChange("linkrep", e)}
           />
-
           <Icon
             classname="clear-btn"
             onClick={(e) => clearInput("linkrep", e)}
@@ -128,9 +170,9 @@ const AddWork = (props: IaddWork): JSX.Element => {
       </div>
       <div className="addwork-input-block">
         <textarea
+          name="description"
           className="addwork-textarea"
-          value={obj?.description}
-          // defaultValue={obj?.description}
+          value={obj?.description || ""}
           maxLength={150}
           required={true}
           placeholder="Добавить описание проекта (максимально 150 символов)"
@@ -141,7 +183,12 @@ const AddWork = (props: IaddWork): JSX.Element => {
           onClick={(e) => clearInput("description", e)}
         />
       </div>
-      <Chip title="Стек:" updateStack={updateStack} />
+      <Chip
+        title="Стек:"
+        enterChipInput={enterChipInput}
+        values={valuesChip}
+        removeChip={removeChip}
+      />
       <button className="addwork-btn">{textbtn}</button>
     </form>
   );
@@ -150,10 +197,12 @@ const AddWork = (props: IaddWork): JSX.Element => {
 AddWork.propTypes = {
   title: PropTypes.string.isRequired,
   textbtn: PropTypes.string.isRequired,
+  mode: PropTypes.string.isRequired,
 };
 
 AddWork.defaultProps = {
   title: "text",
   textbtn: "text button",
+  mode: "Add",
 };
 export default AddWork;
