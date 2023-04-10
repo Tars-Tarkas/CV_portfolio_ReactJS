@@ -1,17 +1,17 @@
 .worklist {
-  @apply flex mt-5 mb-5 flex-row;
+  @apply relative md:flex mt-5 mb-5 md:flex-row;
 }
 .worklist-item {
-  @apply basis-1/9 w-full;
+  @apply md:basis-1/9 w-full;
 }
 .worklist-inner {
   @apply bg-slate-200 p-4 rounded-md text-left w-full;
 }
 .worklist-date {
-  @apply text-xs text-slate-500;
+  @apply text-xs text-slate-500 md:mb-0 block mb-5;
 }
 .worklist-icon {
-  @apply basis-9/1 pl-2;
+  @apply absolute top-2 right-2 flex flex-row-reverse gap-3 md:basis-9/1 md:pl-2 md:relative md:flex md:flex-wrap md:gap-3 md:items-start md:content-start md:top-0;
 }
 .worklist-description-title {
   @apply bg-slate-700 text-white h-8 font-medium rounded-md pl-2;
@@ -51,5 +51,5 @@ hr {
   @apply pr-5;
 }
 .worklist-stack {
-  @apply flex gap-3 text-sm py-3 text-slate-600 font-medium;
+  @apply flex gap-3 text-sm py-3 text-slate-600 font-medium flex-wrap;
 }

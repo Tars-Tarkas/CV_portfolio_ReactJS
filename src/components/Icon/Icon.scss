@@ -12,6 +12,10 @@ i {
 .icon {
   @apply flex justify-center flex-wrap cursor-pointer w-fit;
 }
+
+.icon-text {
+  @apply hidden md:text-xs md:text-slate-900 md:p-1 md:w-auto md:flex;
+}
 .icon-close:before {
   content: "\ea0f";
   @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
@@ -40,9 +44,7 @@ i {
   content: "\e908";
   @apply bg-slate-500 transition-all text-white;
 }
-.icon-text {
-  @apply text-xs text-slate-900 p-1 w-auto;
-}
+
 .icon-email:before {
   content: "\e900";
   @apply text-white text-lg;
