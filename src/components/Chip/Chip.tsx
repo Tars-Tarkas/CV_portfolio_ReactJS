@@ -43,7 +43,11 @@ const Chip = (props: IChipProps): JSX.Element => {
               onClick={() => removeChip(item)}
             >
               {item}
-              <Icon classname="clear-btn" />
+              <Icon
+                classname="clear-btn"
+                size="iconsize-xs"
+                color="icons-white"
+              />
             </li>
           );
         })}

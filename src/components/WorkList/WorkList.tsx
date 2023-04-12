@@ -8,12 +8,17 @@ import AddWork from "../AddWork/AddWork";
 import "./WorkList.scss";
 import Icon from "../Icon/Icon";
 
-///** функция возвращает время создание поста */
-const dataPost = (timestamp: any) => {
-  return ("" + new Date(timestamp).toISOString()).replace(
-    /^([^T]+)T(.+)$/,
-    "$1"
-  );
+/** Функция возвращает время создание поста
+ * @param {Date} timestamp
+ */
+const dataPost = (timestamp: Date) => {
+  const locale = navigator.language;
+  const dateOptions: Intl.DateTimeFormatOptions = {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  };
+  return new Date(timestamp).toLocaleDateString(locale, dateOptions);
 };
 
 const WorkList: React.FC<any> = ({ item }): JSX.Element => {
@@ -32,15 +37,29 @@ const WorkList: React.FC<any> = ({ item }): JSX.Element => {
     <div className="worklist">
       <div className="worklist-item">
         <div className="worklist-inner">
-          <span className="worklist-date">Дата добавления: {dataPost(id)}</span>
+          <div className="worklist-date-block">
+            <span className="worklist-date-title">Дата добавления: </span>
+            <span className="worklist-date">{dataPost(id)}</span>
+          </div>
+
           <h2 className="worklist-title">{title}</h2>
           <hr />
           <div className="worklist-page-link-block">
             <div className="worklist-webpage">
-              <Icon classname="icon-webpage-dark" link={page}></Icon>
+              <Icon
+                classname="icon-webpage"
+                link={page}
+                size="iconsize-base"
+                color="icons-dark"
+              ></Icon>
             </div>
             <div className="worklist-github">
-              <Icon classname="icon-github-dark" link={linkrep}></Icon>
+              <Icon
+                classname="icon-github"
+                link={linkrep}
+                size="iconsize-base"
+                color="icons-dark"
+              ></Icon>
             </div>
           </div>
           <div className="worklist-description">
@@ -52,12 +71,14 @@ const WorkList: React.FC<any> = ({ item }): JSX.Element => {
               <hr />
             </details>
           </div>
-          <ul className="worklist-stack">
-            Стек:
-            {stack?.map((item: any) => {
-              return <li key={item}>{item}</li>;
-            })}
-          </ul>
+          <div className="worklist-stack-block">
+            <span className="worklist-stack-title">Стек:</span>
+            <ul className="worklist-stack">
+              {stack?.map((item: any) => {
+                return <li key={item}>{item}</li>;
+              })}
+            </ul>
+          </div>
         </div>
       </div>
       <div className="worklist-icon">
@@ -65,8 +86,16 @@ const WorkList: React.FC<any> = ({ item }): JSX.Element => {
           classname="icon-trash"
           text="Удалить"
           onClick={() => dispatch(removeWork(item))}
+          size="iconsize-base"
+          color="icons-dark"
         />
-        <Icon classname="icon-edit" text="Правка" onClick={onEdit} />
+        <Icon
+          classname="icon-edit"
+          text="Правка"
+          onClick={onEdit}
+          size="iconsize-base"
+          color="icons-dark"
+        />
         <Modal
           visible={isModal}
           content={

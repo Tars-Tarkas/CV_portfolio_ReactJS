@@ -9,76 +9,72 @@ i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.icons-white {
+  @apply text-slate-200;
+}
+.icons-dark {
+  @apply text-slate-600;
+}
+.iconsize-xs {
+  @apply text-xs;
+}
+.iconsize-sm {
+  @apply text-sm;
+}
+.iconsize-base {
+  @apply text-base;
+}
+.iconsize-lg {
+  @apply text-lg;
+}
 .icon {
   @apply flex justify-center flex-wrap cursor-pointer w-fit;
 }
-
 .icon-text {
   @apply hidden md:text-xs md:text-slate-900 md:p-1 md:w-auto md:flex;
 }
 .icon-close:before {
   content: "\ea0f";
-  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
-  &-xs::before {
-    @apply text-xs;
-  }
-  &-sm::before {
-    @apply text-sm;
-  }
-  &-base::before {
-    @apply text-base;
-  }
-  &-lg::before {
-    @apply text-lg;
-  }
+  @apply w-9 h-9 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer bg-slate-100;
 }
 .icon-close:hover:before {
   @apply bg-slate-500 transition-all text-white;
 }
-
 .icon-edit:before {
   content: "\e908";
-  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
+  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer transition-all;
 }
 .icon-edit:hover:before {
   content: "\e908";
-  @apply bg-slate-500 transition-all text-white;
+  @apply bg-slate-500 text-slate-100;
 }
 
 .icon-email:before {
   content: "\e900";
-  @apply text-white text-lg;
 }
 .icon-github:before {
   content: "\e901";
-  @apply text-white text-lg;
+  @apply transition-all;
 }
-.icon-github-dark:before {
-  content: "\e901";
-  @apply text-slate-700 text-lg;
+.icon-github:hover:before {
+  @apply text-slate-500;
 }
-.icon-github-dark:hover:before {
-  @apply text-slate-500 transition-all;
-}
+
 .icon-linkedin:before {
   content: "\e902";
-  @apply text-white text-lg;
 }
 .icon-info:before {
   content: "\e903";
-  @apply text-slate-600 text-sm;
 }
 .icon-location:before {
   content: "\e904";
-  @apply text-slate-600 text-sm;
 }
 .icon-phone:before {
   content: "\e905";
-  @apply text-white text-lg;
 }
 .icon-telegram:before {
   content: "\e906";
-  @apply text-white text-lg;
 }
 .icon-home:before {
   content: "\e907";
@@ -88,46 +84,39 @@ i {
 
 .icon-trash:before {
   content: "\e9ac";
-  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer text-slate-600 text-lg;
+  @apply w-9 h-9 bg-slate-100 rounded-lg flex items-center justify-center top-[3.5px] right-1 cursor-pointer transition-all;
 }
 .icon-trash:hover:before {
-  @apply bg-slate-500 transition-all text-white;
+  @apply bg-slate-500 text-slate-100;
 }
 .icon-trash-xs:before {
   content: "\e9ac";
-  @apply text-slate-600 text-xs;
 }
 
 .icon-circle-right:before {
   content: "\ea42";
-  @apply text-white text-lg;
 }
 .icon-circle-down:before {
   content: "\ea43";
-  @apply text-white text-lg;
 }
 .icon-webpage:before {
   content: "\e9ca";
-  @apply text-white text-lg;
+  @apply transition-all;
 }
-.icon-webpage-dark:before {
-  content: "\e9ca";
-  @apply text-slate-700 text-lg;
+.icon-webpage:hover:before {
+  @apply text-slate-500;
 }
-.icon-webpage-dark:hover:before {
-  @apply text-slate-500 transition-all;
-}
-.clear-btn {
-  content: "\ea0f";
-  @apply w-6 h-6 bg-slate-100 rounded-md absolute flex items-center justify-center top-[1.5px] right-1 cursor-pointer text-slate-600;
-}
+// .clear-btn {
+//   content: "\ea0f";
+//   @apply ;
+// }
 .clear-btn::before {
   content: "\ea0f";
-  @apply text-slate-300 text-xs;
+  @apply w-6 h-6 bg-slate-50 rounded-full absolute flex items-center justify-center top-[1.5px] right-1 cursor-pointer transition-all;
 }
 .clear-btn:hover::before {
   content: "\ea0f";
-  @apply text-slate-500 transition-all;
+  @apply text-slate-500;
 }
 .icon-link-none {
   i:before {

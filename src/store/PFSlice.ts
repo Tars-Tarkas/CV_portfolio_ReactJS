@@ -66,6 +66,7 @@ const PFSlice = createSlice({
         updatedWork.description = description;
         updatedWork.stack = stack;
       }
+      // state.PFjson.push(updateWork);
     },
 
     removeWork(state, action) {

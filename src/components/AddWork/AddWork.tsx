@@ -69,6 +69,7 @@ const AddWork = (props: IAddWork): JSX.Element => {
       addItemArray(item);
     }
   };
+
   const removeChip = (item: any) => {
     const newValue = valuesChip.filter((value) => {
       return value !== item;
@@ -138,7 +139,12 @@ const AddWork = (props: IAddWork): JSX.Element => {
           placeholder="Добавить заголовок"
           onChange={(e) => handleInputChange("title", e)}
         />
-        <Icon classname="clear-btn" onClick={(e) => clearInput("title", e)} />
+        <Icon
+          classname="clear-btn"
+          onClick={(e) => clearInput("title", e)}
+          size="iconsize-xs"
+          color="icons-white"
+        />
       </div>
 
       <div className="addwork-input-pagelink">
@@ -151,7 +157,12 @@ const AddWork = (props: IAddWork): JSX.Element => {
             placeholder="Ссылка на страницу"
             onChange={(e) => handleInputChange("page", e)}
           />
-          <Icon classname="clear-btn" onClick={(e) => clearInput("page", e)} />
+          <Icon
+            classname="clear-btn"
+            onClick={(e) => clearInput("page", e)}
+            size="iconsize-xs"
+            color="icons-white"
+          />
         </div>
         <div className="addwork-input-block">
           <input
@@ -165,6 +176,8 @@ const AddWork = (props: IAddWork): JSX.Element => {
           <Icon
             classname="clear-btn"
             onClick={(e) => clearInput("linkrep", e)}
+            size="iconsize-xs"
+            color="icons-white"
           />
         </div>
       </div>
@@ -181,6 +194,8 @@ const AddWork = (props: IAddWork): JSX.Element => {
         <Icon
           classname="clear-btn"
           onClick={(e) => clearInput("description", e)}
+          size="iconsize-xs"
+          color="icons-white"
         />
       </div>
       <Chip

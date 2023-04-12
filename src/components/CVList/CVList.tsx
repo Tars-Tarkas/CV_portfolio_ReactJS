@@ -26,7 +26,11 @@ const CVList = ({ data }: any) => {
                 <div className="about-caption">Контакты</div>
                 <ul className="about-contacts">
                   <li className="about-contacts-text">
-                    <Icon classname="icon-phone" />
+                    <Icon
+                      classname="icon-phone"
+                      size="iconsize-lg"
+                      color="icons-white"
+                    />
                     <div>
                       <a href={item.tel} target="_blank" rel="noreferrer">
                         {item.tel.slice(4)}
@@ -34,25 +38,41 @@ const CVList = ({ data }: any) => {
                     </div>
                   </li>
                   <li className="about-contacts-text">
-                    <Icon classname="icon-email" />
+                    <Icon
+                      classname="icon-email"
+                      size="iconsize-lg"
+                      color="icons-white"
+                    />
                     <a href={item.mail} target="_blank" rel="noreferrer">
                       {item.mail.slice(7)}
                     </a>
                   </li>
                   <li className="about-contacts-text">
-                    <Icon classname="icon-telegram" />
+                    <Icon
+                      classname="icon-telegram"
+                      size="iconsize-lg"
+                      color="icons-white"
+                    />
                     <a href={item.telegram} target="_blank" rel="noreferrer">
                       Telegram
                     </a>
                   </li>
                   <li className="about-contacts-text">
-                    <Icon classname="icon-github" />
+                    <Icon
+                      classname="icon-github"
+                      size="iconsize-lg"
+                      color="icons-white"
+                    />
                     <a href={item.github} target="_blank" rel="noreferrer">
                       Github
                     </a>
                   </li>
                   <li className="about-contacts-text">
-                    <Icon classname="icon-linkedin" />
+                    <Icon
+                      classname="icon-linkedin"
+                      size="iconsize-lg"
+                      color="icons-white"
+                    />
                     <a href={item.linkedin} target="_blank" rel="noreferrer">
                       Linkedin
                     </a>
@@ -100,11 +120,19 @@ const CVList = ({ data }: any) => {
                   </h1>
                   <div className="info-location-age">
                     <div className="info-location">
-                      <Icon classname="icon-location" />
+                      <Icon
+                        classname="icon-location"
+                        size="iconsize-xs"
+                        color="icons-dark"
+                      />
                       {item.city}
                     </div>
                     <div className="info-age">
-                      <Icon classname="icon-info" />
+                      <Icon
+                        classname="icon-info"
+                        size="iconsize-xs"
+                        color="icons-dark"
+                      />
                       Возраст: {item.age}
                     </div>
                   </div>

@@ -24,7 +24,7 @@
   }
 }
 .about-contacts-text {
-  @apply text-white flex flex-wrap;
+  @apply text-white flex flex-wrap items-center;
 }
 .about-hardskils-block {
 }
@@ -62,16 +62,10 @@
   @apply md:flex justify-between mb-10;
 }
 .info-location {
-  @apply flex items-center  dark:text-white;
-  i {
-    @apply pr-2;
-  }
+  @apply flex items-center  dark:text-white gap-3;
 }
 .info-age {
-  @apply flex items-center  dark:text-white;
-  i {
-    @apply pr-2;
-  }
+  @apply flex items-center  dark:text-white gap-3;
 }
 .info-postion-post {
   @apply text-lg font-semibold mb-3 dark:text-white;

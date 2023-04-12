@@ -30,7 +30,13 @@ const Modal = (props: IModalProps) => {
         <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
           <div className="modal-content">{content}</div>
           <div className="modal-icon">
-            <Icon classname="icon-close" text="Esc" onClick={onClose} />
+            <Icon
+              classname="icon-close"
+              text="Esc"
+              onClick={onClose}
+              size="iconsize-base"
+              color="icons-dark"
+            />
           </div>
         </div>
       </div>
