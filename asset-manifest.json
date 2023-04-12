@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/CV_portfolio_ReactJS/static/css/main.8ad711d7.css",
+    "main.css": "/CV_portfolio_ReactJS/static/css/main.59d7f117.css",
     "main.js": "/CV_portfolio_ReactJS/static/js/main.4c3c1b0e.js",
     "static/js/787.1ed0c42c.chunk.js": "/CV_portfolio_ReactJS/static/js/787.1ed0c42c.chunk.js",
     "static/media/CV.svg?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.0cb0f7c253cf98528390.svg",
@@ -8,12 +8,12 @@
     "static/media/CV.woff?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.3b46776a460fc8d9db7d.woff",
     "static/media/CV.ttf?p6sipa": "/CV_portfolio_ReactJS/static/media/CV.17bec86df931590d43a7.ttf",
     "index.html": "/CV_portfolio_ReactJS/index.html",
-    "main.8ad711d7.css.map": "/CV_portfolio_ReactJS/static/css/main.8ad711d7.css.map",
+    "main.59d7f117.css.map": "/CV_portfolio_ReactJS/static/css/main.59d7f117.css.map",
     "main.4c3c1b0e.js.map": "/CV_portfolio_ReactJS/static/js/main.4c3c1b0e.js.map",
     "787.1ed0c42c.chunk.js.map": "/CV_portfolio_ReactJS/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ad711d7.css",
+    "static/css/main.59d7f117.css",
     "static/js/main.4c3c1b0e.js"
   ]
 }
