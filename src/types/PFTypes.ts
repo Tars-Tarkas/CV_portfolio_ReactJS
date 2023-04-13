@@ -6,3 +6,11 @@ export interface IObject {
   description: string;
   stack: string[];
 }
+
+export interface IPFtype {
+  PFjson: IObject[];
+  loading: boolean;
+  error: string | null;
+  isEdit: boolean;
+  editWorkId: "";
+}

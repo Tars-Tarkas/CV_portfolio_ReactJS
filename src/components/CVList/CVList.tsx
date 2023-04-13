@@ -1,8 +1,13 @@
 import * as React from "react";
 import "./CVList.scss";
 import Icon from "../Icon/Icon";
+import PropTypes from "prop-types";
+import { Cap } from "../../types/cvTypes";
 
-const CVList = ({ data }: any) => {
+interface ICVList {
+  data: Cap;
+}
+const CVList: React.FC<ICVList> = ({ data }): JSX.Element => {
   const {
     contacts,
     hardskils,
@@ -201,4 +206,9 @@ const CVList = ({ data }: any) => {
     </div>
   );
 };
+
+CVList.propTypes = {
+  // data: PropTypes.arrayOf(Cap).isRequired,
+};
+
 export default CVList;

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { IObject } from "../types/PF";
+import { IPFtype } from "../types/PFTypes";
+import { IObject } from "../types/PFTypes";
 // const jfile = "../../public/PF.json";
 
 export const fetchPF: any = createAsyncThunk(
@@ -24,19 +25,11 @@ export const fetchPF: any = createAsyncThunk(
   }
 );
 
-interface IPFtype {
-  PFjson: IObject[];
-  loading: boolean | null;
-  error: string | null;
-  isEdit: boolean;
-  editWorkId: "";
-}
-
 const PFSlice = createSlice({
   name: "PF",
   initialState: {
     PFjson: [],
-    loading: null,
+    loading: false,
     error: null,
     isEdit: false,
     editWorkId: "",
@@ -88,11 +81,12 @@ const PFSlice = createSlice({
     });
     builder.addCase(fetchPF.fulfilled, (state, action) => {
       state.PFjson = action.payload;
+      state.error = null;
       state.loading = false;
     });
     builder.addCase(fetchPF.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.error.message;
     });
   },
 });

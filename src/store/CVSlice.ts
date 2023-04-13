@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { ICVtype } from "../types/cvTypes";
 
 // const jfile = "./cv.json";
 
@@ -24,24 +25,18 @@ export const fetchCV: any = createAsyncThunk(
   }
 );
 
-interface ICVtype {
-  CVjson: [];
-  loading: boolean | null;
-  error: string | null;
-}
-
 const CVSlice = createSlice({
   name: "CV",
   initialState: {
     CVjson: [],
-    loading: null,
-    error: null,
+    loading: false,
+    error: "",
   } as ICVtype,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchCV.pending, (state) => {
       state.loading = true;
-      state.error = null;
+      state.error = "";
     });
     builder.addCase(fetchCV.fulfilled, (state, action) => {
       state.CVjson = action.payload;
@@ -49,7 +44,7 @@ const CVSlice = createSlice({
     });
     builder.addCase(fetchCV.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.error.message;
     });
   },
 });

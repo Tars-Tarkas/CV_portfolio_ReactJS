@@ -7,6 +7,7 @@ import Loader from "../Loader/Loader";
 import "./CV.module.scss";
 
 // const CV: React.FC = (): JSX.Element => {
+
 const CV: React.FC<any> = ({ title }): JSX.Element => {
   const dispatch = useDispatch();
 

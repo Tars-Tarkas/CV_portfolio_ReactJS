@@ -6,7 +6,7 @@ import { addWork, updateWork } from "../../store/PFSlice";
 import "./AddWork.scss";
 import Icon from "../Icon/Icon";
 import Chip from "../Chip/Chip";
-import { IObject } from "../../types/PF";
+import { IObject } from "../../types/PFTypes";
 
 interface IAddWork {
   title: string;
