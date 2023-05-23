@@ -1,7 +1,7 @@
 [
   {
     "id": 1665355292000,
-    "title": "Первая опыт создания сайта — приложения на React JS",
+    "title": "Мое резюме и список работ",
     "page": "https://tars-tarkas.github.io/CV_portfolio_ReactJS/",
     "linkrep": "https://github.com/Tars-Tarkas/CV_portfolio_ReactJS",
     "description": "На странице Резюме использовал Fetch для загрузки данных из локального JSON файла. В Портфолио классическое исполнение ToDo List`а.Данный проект постоянно изменяется по мере освоения новыйх учебных материалов по ReactJS, осваивается на практике тот или иной подход в реализации. Практический опыт в купе с полученными знаниями повышает мой опыт в разработке. Буду благодарен любой обратной связи по этому проекту.",
@@ -9,7 +9,7 @@
   },
   {
     "id": 1669095692000,
-    "title": "Тестовое задание от Oxem Studio, на позицию Фронтенд-разработчик",
+    "title": "Задание от Oxem Studio, на позицию Фронтенд-разработчик",
     "page": "https://tars-tarkas.github.io/Oxem-calc/",
     "linkrep": "https://github.com/Tars-Tarkas/Oxem-calc",
     "description": "Задание: сверстать калькулятор лизинга авто Макеты.",
@@ -22,5 +22,13 @@
     "linkrep": "https://github.com/Tars-Tarkas/funbox-reactjs",
     "description": "Сверстайте страницу, показанную на рисунке. Внешний вид должен полностью соответствовать макету, а поведение — описанию задачи. Макет находится в папке prototype, описание задачи ниже.\n Скачать тестовое задание целиком можно здесь: https://dl.funbox.ru/qt-html-css-js.zip.",
     "stack": ["Javascript", "ReactJS", "HTML5", "SCSS"]
+  },
+  {
+    "id": 1676698892111,
+    "title": "Необходимо разработать две страницы интернет-магазина аудио аксессуаров.",
+    "page": "https://tars-tarkas.github.io/neoflex/",
+    "linkrep": "https://github.com/Tars-Tarkas/neoflex",
+    "description": "ервая страница – каталог товаров, вторая – корзина с приобретенными товарами. Макет доступен по сылке: https://www.figma.com/file/bBkg5W8GRwGmhNCVeXevoN/Neoflex-Invite-Test?node-id=0%3A1 При нажатии на «Купить» в карточке на первой странице счетчик товаров рядом с иконкой корзины должен увеличиваться",
+    "stack": ["Typescript", "ReactJS", "Redux", "Styled-Components"]
   }
 ]
