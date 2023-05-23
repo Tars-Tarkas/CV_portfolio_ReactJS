@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchTraining } from "../../store/traininSlice";
 import "./Training.scss";
 
-const Training: React.FC<any> = ({ title }): JSX.Element => {
+
+
+const Training = ({ title }: any) => {
   const dispatch = useDispatch();
   useEffect(() => {
     document.title = title;

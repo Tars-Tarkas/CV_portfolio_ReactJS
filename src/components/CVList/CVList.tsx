@@ -2,12 +2,13 @@ import * as React from "react";
 import "./CVList.scss";
 import Icon from "../Icon/Icon";
 import PropTypes from "prop-types";
-import { Cap } from "../../types/cvTypes";
+import { ICap } from "../../types/cvTypes";
 
-interface ICVList {
-  data: Cap;
+interface Iprops {
+  props: ICap;
 }
-const CVList: React.FC<ICVList> = ({ data }): JSX.Element => {
+
+const CVList = ({ props }: Iprops) => {
   const {
     contacts,
     hardskils,
@@ -17,7 +18,7 @@ const CVList: React.FC<ICVList> = ({ data }): JSX.Element => {
     position,
     experience,
     education,
-  } = data;
+  } = props;
   return (
     <div className="container">
       <div className="cv_main">
@@ -132,14 +133,6 @@ const CVList: React.FC<ICVList> = ({ data }): JSX.Element => {
                       />
                       {item.city}
                     </div>
-                    <div className="info-age">
-                      <Icon
-                        classname="icon-info"
-                        size="iconsize-xs"
-                        color="icons-dark"
-                      />
-                      Возраст: {item.age}
-                    </div>
                   </div>
                 </div>
               );
@@ -208,7 +201,7 @@ const CVList: React.FC<ICVList> = ({ data }): JSX.Element => {
 };
 
 CVList.propTypes = {
-  // data: PropTypes.arrayOf(Cap).isRequired,
+  props: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 };
 
 export default CVList;

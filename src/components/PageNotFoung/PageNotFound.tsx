@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./PageNotFound.scss";
 
-const PageNotFound: React.FC = (): JSX.Element => {
+const PageNotFound = () => {
   return (
     <div className="pagenotfound">
       <p className="pagenotfound-code">404</p>

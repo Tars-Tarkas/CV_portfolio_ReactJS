@@ -7,11 +7,12 @@ import Modal from "../Modal/Modal";
 import AddWork from "../AddWork/AddWork";
 import "./WorkList.scss";
 import Icon from "../Icon/Icon";
+import { IObject } from "../../types/PFTypes";
 
 /** Функция возвращает время создание поста
  * @param {Date} timestamp
  */
-const dataPost = (timestamp: Date) => {
+const dataPost = (timestamp: number) => {
   const locale = navigator.language;
   const dateOptions: Intl.DateTimeFormatOptions = {
     day: "numeric",
@@ -21,7 +22,11 @@ const dataPost = (timestamp: Date) => {
   return new Date(timestamp).toLocaleDateString(locale, dateOptions);
 };
 
-const WorkList: React.FC<any> = ({ item }): JSX.Element => {
+interface Iworklist {
+  item: IObject;
+}
+
+const WorkList = ({ item }: Iworklist) => {
   const { id, title, page, linkrep, description, stack } = item;
   const dispatch = useDispatch();
   const [isModal, setModal] = useState(false);

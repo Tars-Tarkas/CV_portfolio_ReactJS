@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./Loader.scss";
 
-const Loader: React.FC = () => {
+const Loader = () => {
   return (
     <div className="loader-block">
       <svg

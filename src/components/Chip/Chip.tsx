@@ -11,7 +11,7 @@ interface IChipProps {
   enterChipInput: (e: any, value: any) => void;
 }
 
-const Chip = (props: IChipProps): JSX.Element => {
+const Chip: React.FC<IChipProps> = (props) => {
   const { title, values, enterChipInput, removeChip } = props;
   const [value, setValue] = useState<string>("");
 
@@ -57,7 +57,7 @@ const Chip = (props: IChipProps): JSX.Element => {
 };
 Chip.propTypes = {
   title: PropTypes.string.isRequired,
-  values: PropTypes.array,
+  // values: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 Chip.defaultProps = {

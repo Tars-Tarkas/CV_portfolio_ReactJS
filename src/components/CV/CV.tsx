@@ -5,10 +5,15 @@ import { fetchCV } from "../../store/CVSlice";
 import CVList from "../CVList/CVList";
 import Loader from "../Loader/Loader";
 import "./CV.module.scss";
+import PropTypes from "prop-types";
+import { ICVtype } from "../../types/cvTypes";
 
 // const CV: React.FC = (): JSX.Element => {
+interface Ititle {
+  title: string;
+}
 
-const CV: React.FC<any> = ({ title }): JSX.Element => {
+const CV = ({ title }: Ititle) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,11 +25,21 @@ const CV: React.FC<any> = ({ title }): JSX.Element => {
   });
 
   const { CVjson, loading, error } = useSelector((state: any) => state.CV);
+
   return (
     <>
-      {loading ? <Loader /> : error ? <p>{error}</p> : <CVList data={CVjson} />}
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <CVList props={CVjson} />
+      )}
     </>
   );
 };
 
+CV.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 export default CV;

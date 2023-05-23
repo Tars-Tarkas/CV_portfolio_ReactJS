@@ -15,7 +15,7 @@ interface IAddWork {
 }
 type IMode = "Add" | "Edit";
 
-const AddWork = (props: IAddWork): JSX.Element => {
+const AddWork: React.FC<IAddWork> = (props) => {
   const { title, textbtn, mode } = props;
 
   const dispatch = useDispatch();
@@ -212,7 +212,7 @@ const AddWork = (props: IAddWork): JSX.Element => {
 AddWork.propTypes = {
   title: PropTypes.string.isRequired,
   textbtn: PropTypes.string.isRequired,
-  mode: PropTypes.string.isRequired,
+  // mode: PropTypes.,
 };
 
 AddWork.defaultProps = {

@@ -36,7 +36,7 @@ type stylename =
  * @returns
  */
 
-const Icon: React.FC<IconProps> = (props): JSX.Element => {
+const Icon = (props: IconProps) => {
   const { classname, text, size, color, onClick, link } = props;
   return (
     <div className="icon">

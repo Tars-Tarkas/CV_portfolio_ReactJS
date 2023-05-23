@@ -12,7 +12,7 @@ import Loader from "../Loader/Loader";
 interface IPortfolio {
   title: string;
 }
-const Portfolio = (props: IPortfolio): JSX.Element => {
+const Portfolio = (props: IPortfolio) => {
   const { title } = props;
   const dispatch = useDispatch();
 

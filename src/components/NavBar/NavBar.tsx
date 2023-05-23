@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
 
-function NavBar() {
+const NavBar = () => {
   return (
     <ul className="navbar">
       <li className="navbar__link">
@@ -38,6 +38,6 @@ function NavBar() {
       </li>
     </ul>
   );
-}
+};
 
 export default NavBar;

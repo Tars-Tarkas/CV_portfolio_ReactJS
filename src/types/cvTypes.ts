@@ -1,10 +1,10 @@
 export interface ICVtype {
-  CVjson: Cap[];
+  CVjson: ICap[];
   loading: boolean;
   error: string | null;
 }
 
-export interface Cap {
+export interface ICap {
   person: Person[];
   contacts: Contacts[];
   position: Position[];
