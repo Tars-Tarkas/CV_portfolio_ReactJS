@@ -10,7 +10,7 @@
 
   "contacts": [
     {
-      "photo": "./photo.jpg",
+      "photo": "/photo.jpg",
       "tel": "tel:+7-993-016-96-64",
       "mail": "mailto:tarstarkas00@mail.ru",
       "telegram": "http://t.me/MolodykAndrei",
@@ -39,6 +39,8 @@
     "Typescript",
     "ReactJS",
     "Redux ToolKit",
+    "Redux-Saga",
+    "React Bootstrap",
     "Jest",
     "HTML5",
     "CSS3",
@@ -58,7 +60,7 @@
   "experience": [
     {
       "id": 1,
-      "year": "2020 - по настоящее время",
+      "year": "2020 - 2023",
       "organization": "Завод торгового оборудования. (г.Новосибирск, Россия)",
       "position": "Оператор-наладчик станков с ЧПУ",
       "description": "Оператор станков ЧПУ SCM Tech Z1, SCM Tech Z25, Cyflex. Контроль деталей, программирование УП."
