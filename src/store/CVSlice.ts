@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ICVtype } from "../types/cvTypes";
 
-// const jfile = "./cv.json";
-
 export const fetchCV: any = createAsyncThunk(
   "CV/fetchCV",
   async function (_, { rejectWithValue }) {

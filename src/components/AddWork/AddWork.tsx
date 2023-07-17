@@ -8,6 +8,8 @@ import Icon from "../Icon/Icon";
 import Chip from "../Chip/Chip";
 import { IObject } from "../../types/PFTypes";
 
+import { RootState } from "../../store/index";
+
 interface IAddWork {
   title: string;
   textbtn: string;
@@ -50,8 +52,7 @@ const AddWork: React.FC<IAddWork> = (props) => {
       default:
         break;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode]);
+  }, [editWorkId, mode, obj]);
 
   const addItemArray = (value: any) => {
     if (value.trim().length !== 0) {
@@ -212,7 +213,6 @@ const AddWork: React.FC<IAddWork> = (props) => {
 AddWork.propTypes = {
   title: PropTypes.string.isRequired,
   textbtn: PropTypes.string.isRequired,
-  // mode: PropTypes.,
 };
 
 AddWork.defaultProps = {

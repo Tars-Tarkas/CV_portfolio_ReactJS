@@ -28,7 +28,15 @@
     "title": "Необходимо разработать две страницы интернет-магазина аудио аксессуаров.",
     "page": "https://tars-tarkas.github.io/neoflex/",
     "linkrep": "https://github.com/Tars-Tarkas/neoflex",
-    "description": "ервая страница – каталог товаров, вторая – корзина с приобретенными товарами. Макет доступен по сылке: https://www.figma.com/file/bBkg5W8GRwGmhNCVeXevoN/Neoflex-Invite-Test?node-id=0%3A1 При нажатии на «Купить» в карточке на первой странице счетчик товаров рядом с иконкой корзины должен увеличиваться",
+    "description": "Первая страница – каталог товаров, вторая – корзина с приобретенными товарами. Макет доступен по сылке: https://www.figma.com/file/bBkg5W8GRwGmhNCVeXevoN/Neoflex-Invite-Test?node-id=0%3A1 При нажатии на «Купить» в карточке на первой странице счетчик товаров рядом с иконкой корзины должен увеличиваться",
     "stack": ["Typescript", "ReactJS", "Redux", "Styled-Components"]
+  },
+  {
+    "id": 167669889233,
+    "title": "Необходимо реализовать SPA (single page application) на React.",
+    "page": "https://tars-tarkas.github.io/mitrasoft/#/posts",
+    "linkrep": "https://github.com/Tars-Tarkas/mitrasoft",
+    "description": "Нужно создать сайт с постами, где будут присутствовать 3 страницы (роута): 1. Список постов (главная страница), где будут располагаться все посты. 2. Обо мне, где будет располагаться краткая информация о Вас. 3. Подробности о пользователе (куда необходимо вывести информацию о пользователе и список его постов) Получить данные необходимо через фейковое api https://jsonplaceholder.typicode.com.",
+    "stack": ["Typescript", "ReactJS", "Redux", "Redux-Saga", "React Bootstrap"]
   }
 ]

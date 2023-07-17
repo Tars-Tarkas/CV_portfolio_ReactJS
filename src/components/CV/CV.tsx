@@ -6,9 +6,7 @@ import CVList from "../CVList/CVList";
 import Loader from "../Loader/Loader";
 import "./CV.module.scss";
 import PropTypes from "prop-types";
-import { ICVtype } from "../../types/cvTypes";
 
-// const CV: React.FC = (): JSX.Element => {
 interface Ititle {
   title: string;
 }

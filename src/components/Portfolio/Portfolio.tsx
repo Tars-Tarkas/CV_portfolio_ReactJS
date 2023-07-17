@@ -8,6 +8,7 @@ import Modal from "../Modal/Modal";
 import { fetchPF } from "../../store/PFSlice";
 import AdWork from "../AddWork/AddWork";
 import Loader from "../Loader/Loader";
+import { RootState } from "../../store";
 
 interface IPortfolio {
   title: string;
@@ -24,7 +25,9 @@ const Portfolio = (props: IPortfolio) => {
     dispatch(fetchPF());
   }, [dispatch]);
 
-  const { PFjson, loading, error } = useSelector((state: any) => state.PF);
+  const { PFjson, loading, error } = useSelector(
+    (state: RootState) => state.PF
+  );
 
   const onClose = () => setModal(false);
   const [isModal, setModal] = useState(false);

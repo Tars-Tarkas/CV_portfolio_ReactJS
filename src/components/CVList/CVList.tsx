@@ -27,7 +27,7 @@ const CVList = ({ props }: Iprops) => {
             return (
               <div key={index} className="about-contacts-block">
                 <div className="about-photo">
-                  <img alt="" src={item.photo} />
+                  <img alt="" src={process.env.PUBLIC_URL + item.photo} />
                 </div>
                 <div className="about-caption">Контакты</div>
                 <ul className="about-contacts">

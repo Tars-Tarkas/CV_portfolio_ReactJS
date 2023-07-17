@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { IPFtype } from "../types/PFTypes";
 import { IObject } from "../types/PFTypes";
-// const jfile = "../../public/PF.json";
 
 export const fetchPF: any = createAsyncThunk(
   "PF/fetchPF",
@@ -59,7 +58,6 @@ const PFSlice = createSlice({
         updatedWork.description = description;
         updatedWork.stack = stack;
       }
-      // state.PFjson.push(updateWork);
     },
 
     removeWork(state, action) {

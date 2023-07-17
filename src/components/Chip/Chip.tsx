@@ -35,7 +35,7 @@ const Chip: React.FC<IChipProps> = (props) => {
         onChange={changeChipInput}
       />
       <ul className="chip-field">
-        {values?.map((item: any) => {
+        {values?.map((item: string) => {
           return (
             <li
               className="chip-field-item"

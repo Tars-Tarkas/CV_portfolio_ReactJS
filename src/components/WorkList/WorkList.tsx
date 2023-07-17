@@ -9,9 +9,6 @@ import "./WorkList.scss";
 import Icon from "../Icon/Icon";
 import { IObject } from "../../types/PFTypes";
 
-/** Функция возвращает время создание поста
- * @param {Date} timestamp
- */
 const dataPost = (timestamp: number) => {
   const locale = navigator.language;
   const dateOptions: Intl.DateTimeFormatOptions = {
@@ -43,8 +40,8 @@ const WorkList = ({ item }: Iworklist) => {
       <div className="worklist-item">
         <div className="worklist-inner">
           <div className="worklist-date-block">
-            <span className="worklist-date-title">Дата добавления: </span>
-            <span className="worklist-date">{dataPost(id)}</span>
+            {/* <span className="worklist-date-title">Дата добавления: </span> */}
+            {/* <span className="worklist-date">{dataPost(id)}</span> */}
           </div>
 
           <h2 className="worklist-title">{title}</h2>
